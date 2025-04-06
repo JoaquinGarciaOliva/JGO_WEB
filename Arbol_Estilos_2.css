@@ -1,0 +1,104 @@
+     
+     ul {
+            list-style-type: none; /* Elimina los iconos predeterminados de <li> */
+        }
+
+    .hidden {
+            display: none;
+        } 
+       
+    .header {
+            background: #2635b7;
+            padding: 10px;    
+            color: white;        
+            text-align: center;
+            font-weight: bold;
+        }
+
+
+/**** otros  ****/ 
+
+    
+
+    
+       .tree {
+            list-style: none;
+            padding-left: 5px;
+            position: relative;
+        }
+
+      .tree-node {            
+            cursor: pointer;
+            padding: 0px;
+            display: inline-block;
+            align-items: left;
+            position: relative;
+            left: -10px;
+        }
+
+       .tree-node:hover, .selected { background: #cde8f1; }
+      
+       .tree-node2 {            
+            cursor: pointer;
+            padding: 0px;
+            display: inline-block;
+            align-items: left;
+            position: relative;
+            left: -30px;
+        }
+       .tree-node2:hover, .selected { background: #cde8f1; }
+       
+        
+
+
+
+       /* formatos de la carpeta y el nombre*/
+
+       .folder {
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            padding: 0px;
+            align-items: left;
+            position: relative;
+            left: 0px;
+        }
+        .folder:hover, .selected { background: #b9e7f4;}
+
+       .Arbol_Codigo {
+             font-size: 12pt; 
+	     font-weight: bold; 
+	     font-family: 'Times New Roman';              
+             display: inline-block;            
+        }
+
+       .Arbol_Nombre {            
+             font-weight: bold;
+             cursor:pointer;
+	     color: purple;
+	     font-size: 12pt; 
+	     font-weight: bold; 
+	     font-family: 'Times New Roman'; 	
+	     background-color: transparent;
+             display: inline-block;	
+        }
+  
+
+
+
+
+
+
+      
+      .icon {
+            margin-right: 5px;
+        } 
+      
+      .icono-svg {
+        top: 10px;
+        width: 18px;  /* Ancho deseado */
+        height: 18px; /* Alto deseado */
+       }
+
+ 
+      
