@@ -33,7 +33,7 @@
             display: inline-block;
             align-items: left;
             position: relative;
-            left: -10px;
+            /*left: -10px;*/
         }
 
        .tree-node:hover, .selected { background: #cde8f1; }
@@ -62,6 +62,8 @@
             align-items: left;
             position: relative;
             left: 0px;
+            margin-right: 5px;
+   
         }
         .folder:hover, .selected { background: #b9e7f4;}
 
@@ -84,11 +86,6 @@
         }
   
 
-
-
-
-
-
       
       .icon {
             margin-right: 5px;
@@ -96,9 +93,102 @@
       
       .icono-svg {
         top: 10px;
-        width: 18px;  /* Ancho deseado */
-        height: 18px; /* Alto deseado */
+        width: 14px;  /* 18 Ancho deseado */
+        height: 18px; /* 18 Alto deseado */
+        cursor:pointer;
        }
 
- 
+     .manImg {
+        top: 10px;
+        width: 14px;  /* 18 Ancho deseado */
+        height: 18px; /* 18 Alto deseado */
+        cursor:pointer;
+       }
+
+     .icono-cabecera {
+        top: 10px;
+        margin-right: 20px;
+        width: 40px;  /* 18 Ancho deseado */
+        height: 40px; /* 18 Alto deseado */
+        cursor:pointer;
+        border-radius: 8px;       
+       }
+
+     .icono-cabecera:hover {
+        transform: scale(1.05);
+      }
+
+/*  ventana modal */
+
+
+/* Estilos de la ventana modal */
+.modal-backdrop {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Permanece en su lugar incluso al desplazarse */
+    z-index: 1000; /* Se superpone a todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Habilitar desplazamiento si el contenido es demasiado grande */
+    background-color: rgba(0,0,0,0.7); /* Fondo semi-transparente negro */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque en el fondo */
+    -webkit-backdrop-filter: blur(5px); /* Compatibilidad con Safari */
+    display: none; /*flex;*/ /* Usamos flexbox para centrar el contenido */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+}
+
+/**************** Contenido de la modal ***********/
+.modal-content {
+    background-color: #fff;
+    margin: 15px; /* Pequeño margen para que no toque los bordes */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* Para posicionar el botón de cerrar */
+    width: 90%; /* Ancho responsivo */
+    max-width: 900px; /* Ancho máximo para pantallas grandes */
+    height: 80%; /* Altura responsiva */
+    max-height: 600px; /* Altura máxima */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Oculta cualquier desbordamiento dentro del contenido */
+}
+
+/* Botón para cerrar la modal */
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para el cuerpo de la modal (donde va el iframe) */
+.modal-body {
+    flex-grow: 1; /* Permite que ocupe todo el espacio disponible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para el iframe */
+#modalIframe {
+    width: 100%;
+    height: 100%;
+    border: none; /* Quita el borde por defecto del iframe */
+    background-color: #f9f9f9; /* Color de fondo del iframe mientras carga */
+}
+
       
