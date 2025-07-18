@@ -86,7 +86,7 @@
     let img = element;                                
     let rutaCompleta = img.src;   // Obtener el nombre de la imagen actual 
     let nombreImagen = rutaCompleta.substring(rutaCompleta.lastIndexOf('/') + 1); //nombre del archivo
-      if (nombreImagen == "folder.bmp"){img.src = "imagenes/mydoc.gif";}else{img.src = "imagenes/folder.bmp";}    
+      if (nombreImagen == "folder.bmp"){img.src = "Imagenes/mydoc.gif";}else{img.src = "Imagenes/folder.bmp";}    
        
   }
 

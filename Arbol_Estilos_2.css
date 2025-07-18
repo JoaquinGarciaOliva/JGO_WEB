@@ -111,7 +111,7 @@
         width: 40px;  /* 18 Ancho deseado */
         height: 40px; /* 18 Alto deseado */
         cursor:pointer;
-        border-radius: 8px;       
+       /* border-radius: 8px;   */    
        }
 
      .icono-cabecera:hover {
