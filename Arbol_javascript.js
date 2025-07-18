@@ -17,14 +17,14 @@
                   
 
 
-       if (Tiposel == 1) { actualizarIframe2(valor1); document.getElementById('iconvideo').src = "imagenes/play_video_down.png"; }
-                    else { document.getElementById('iconvideo').src = "imagenes/play_video.png";};
-       if (Tiposel == 2) { actualizarIframe2(valor2);document.getElementById('iconteoria').src = "imagenes/teoria_down.png"; }
-                    else { document.getElementById('iconteoria').src = "imagenes/teoria.png";};
-       if (Tiposel == 3) { actualizarIframe2(valor3);document.getElementById('iconejemplos').src = "imagenes/ejemplos_down.png"; }
-                    else { document.getElementById('iconejemplos').src = "imagenes/ejemplos.png";};
-       if (Tiposel == 4) { actualizarIframe2(valor4);document.getElementById('iconejercicios').src = "imagenes/ejercicios_down.png"; }
-                    else { document.getElementById('iconejercicios').src = "imagenes/ejercicios.png";};
+       if (Tiposel == 1) { actualizarIframe2(valor1); document.getElementById('iconvideo').src = "Imagenes/play_video_down.png"; }
+                    else { document.getElementById('iconvideo').src = "Imagenes/play_video.png";};
+       if (Tiposel == 2) { actualizarIframe2(valor2);document.getElementById('iconteoria').src = "Imagenes/teoria_down.png"; }
+                    else { document.getElementById('iconteoria').src = "Imagenes/teoria.png";};
+       if (Tiposel == 3) { actualizarIframe2(valor3);document.getElementById('iconejemplos').src = "Imagenes/ejemplos_down.png"; }
+                    else { document.getElementById('iconejemplos').src = "Imagenes/ejemplos.png";};
+       if (Tiposel == 4) { actualizarIframe2(valor4);document.getElementById('iconejercicios').src = "Imagenes/ejercicios_down.png"; }
+                    else { document.getElementById('iconejercicios').src = "Imagenes/ejercicios.png";};
     }
 
   function cambiarPropiedad(Codigosel) {      
@@ -57,14 +57,14 @@
       });
 
 
-       if (Tiposel == 1) { document.getElementById('nivel1').src = "imagenes/flecha_red_down.png"; }
-                    else { document.getElementById('nivel1').src = "imagenes/flecha_red.png";};
-       if (Tiposel == 2) { document.getElementById('nivel2').src = "imagenes/flecha_blue_down.png"; }
-                    else { document.getElementById('nivel2').src = "imagenes/flecha_blue.png";};
-       if (Tiposel == 3) { document.getElementById('nivel3').src = "imagenes/flecha_green_down.png"; }
-                    else { document.getElementById('nivel3').src = "imagenes/flecha_green.png";};
-       if (Tiposel == 4) { document.getElementById('nivel4').src = "imagenes/flecha_lila_down.png"; }
-                    else { document.getElementById('nivel4').src = "imagenes/flecha_lila.png";};
+       if (Tiposel == 1) { document.getElementById('nivel1').src = "Imagenes/flecha_red_down.png"; }
+                    else { document.getElementById('nivel1').src = "Imagenes/flecha_red.png";};
+       if (Tiposel == 2) { document.getElementById('nivel2').src = "Imagenes/flecha_blue_down.png"; }
+                    else { document.getElementById('nivel2').src = "Imagenes/flecha_blue.png";};
+       if (Tiposel == 3) { document.getElementById('nivel3').src = "Imagenes/flecha_green_down.png"; }
+                    else { document.getElementById('nivel3').src = "Imagenes/flecha_green.png";};
+       if (Tiposel == 4) { document.getElementById('nivel4').src = "Imagenes/flecha_lila_down.png"; }
+                    else { document.getElementById('nivel4').src = "Imagenes/flecha_lila.png";};
 
     }
 
