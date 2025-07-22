@@ -14,7 +14,7 @@
         
         <div class="header" id="DivHeader" Tipo='' Youtube='' teoria='' ejemplos='' ejercicios=''>
             <div class="tooltip-container">
-                <img id="nivel1"  src="Imagenes/flecha_red.png" onclick="filtrarDivs(1)"></img>
+                <img id="nivel1"  class="icono-cabecera" src="Imagenes/flecha_red.png" onclick="filtrarDivs(1)"></img>
                 <span class="tooltip-text">Imprescindible</span>
              </div>
             <div class="tooltip-container">
@@ -51,13 +51,31 @@
         <div class="panel right-panel" id="contentFrame">
            
           <div class="header"  >
-            <img id="ayuda"  class="icono-cabecera" src="Imagenes/help.png"  onclick="ventanamodal('https://www.elmundo.es')" >
+             <div class="tooltip-container">
+               <img  id="iconvideo"  class="icono-cabecera" src="Imagenes/play_video.png" onclick="Mostrar_Web(1)"></img> 
+               <span class="tooltip-text">Video Explicativo</span>
+             </div> 
+             <div class="tooltip-container">
+               <img  id="iconteoria"  class="icono-cabecera" src="Imagenes/teoria.png" onclick="Mostrar_Web(2)"></img> 
+               <span class="tooltip-text">Explicación / Teoría </span>
+             </div>
+             <div class="tooltip-container">
+                <img  id="iconejemplos" class="icono-cabecera" src="Imagenes/ejemplos.png" onclick="Mostrar_Web(3)"></img> 
+               <span class="tooltip-text">Ejemplos</span>
+             </div>
+             <div class="tooltip-container">
+               <img  id="iconejercicios" class="icono-cabecera" src="Imagenes/ejercicios.png" onclick="Mostrar_Web(4)" ></img> 
+               <span class="tooltip-text">Ejercicios/Soluciones</span>
+             </div>
             
-            <img  id="iconvideo"  class="icono-cabecera" src="Imagenes/play_video.png" onclick="Mostrar_Web(1)"></img>
-            <img  id="iconteoria"  class="icono-cabecera" src="Imagenes/teoria.png" onclick="Mostrar_Web(2)"></img>
-            <img  id="iconejemplos" class="icono-cabecera" src="Imagenes/ejemplos.png" onclick="Mostrar_Web(3)"></img>
-            <img  id="iconejercicios" class="icono-cabecera" src="Imagenes/ejercicios.png" onclick="Mostrar_Web(4)" ></img>
-            Explorador Prueba 
+             Joaquín García Oliva: JGO-WEB-MATEMÁTICAS
+            <div class="tooltip-container">
+               <img id="ayuda"  class="icono-cabecera" src="Imagenes/help.png"  onclick="ventanamodal('https://www.elmundo.es')" >
+               <span class="tooltip-text">Ayuda</span>
+             </div>
+            
+         
+            
           </div>      
           <iframe id="webviewer"  name="verpagina" src=""  width="100%" height="100%" frameborder="0"></iframe> 
  
