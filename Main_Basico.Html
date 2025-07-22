@@ -9,16 +9,28 @@
  </head>
 <body>
     
-
     <div class="sidebar" id="treeContainer">  
         <div class="header" id="DivHeader" Tipo='' Youtube='' teoria='' ejemplos='' ejercicios=''>
-            <img id="nivel1" class="icono-cabecera" src="Imagenes/flecha_red.gif" onclick="filtrarDivs(1)"></img>
-            <img id="nivel2" class="icono-cabecera" src="Imagenes/flecha_blue.gif" onclick="filtrarDivs(2)"></img>
-            <img id="nivel3" class="icono-cabecera" src="Imagenes/flecha_green.gif" onclick="filtrarDivs(3)"></img>
-            <img id="nivel4" class="icono-cabecera" src="Imagenes/flecha_lila.gif" onclick="filtrarDivs(4)" ></img>
-            <img id="ayuda"  class="icono-cabecera" src="Imagenes/help.png"  onclick="ventanamodal('https://www.elmundo.es')" >
-            Explorador Prueba 
+            <div class="tooltip-container">
+                <img id="nivel1"  src="Imagenes/flecha_red.png" onclick="filtrarDivs(1)"></img>
+                <span class="tooltip-text">Imprescindible</span>
+             </div>
+            <div class="tooltip-container">
+              <img id="nivel2" class="icono-cabecera" src="Imagenes/flecha_blue.png" onclick="filtrarDivs(2)"></img>
+              <span class="tooltip-text">Prioritario</span>
+             </div>
+           <div class="tooltip-container">            
+              <img id="nivel3" class="icono-cabecera" src="Imagenes/flecha_green.png" onclick="filtrarDivs(3)"></img>
+               <span class="tooltip-text">Esencial</span>
+             </div>
+           <div class="tooltip-container">
+               <img id="nivel4" class="icono-cabecera" src="Imagenes/flecha_lila.png" onclick="filtrarDivs(4)" ></img> 
+               <span class="tooltip-text">Profundizar</span>
+             </div>           
         </div>
+
+
+    
          <div class="Arbol" >
            <ul class="tree">
 
@@ -30,10 +42,13 @@
     <div class="resizer" id="resizer"></div>
     <div class="content" id="contentFrame">
           <div class="header"  >
+            <img id="ayuda"  class="icono-cabecera" src="Imagenes/help.png"  onclick="ventanamodal('https://www.elmundo.es')" >
+            
             <img  id="iconvideo"  class="icono-cabecera" src="Imagenes/play_video.png" onclick="Mostrar_Web(1)"></img>
             <img  id="iconteoria"  class="icono-cabecera" src="Imagenes/teoria.png" onclick="Mostrar_Web(2)"></img>
             <img  id="iconejemplos" class="icono-cabecera" src="Imagenes/ejemplos.png" onclick="Mostrar_Web(3)"></img>
             <img  id="iconejercicios" class="icono-cabecera" src="Imagenes/ejercicios.png" onclick="Mostrar_Web(4)" ></img>
+            Explorador Prueba 
           </div>      
           <iframe id="webviewer"  name="verpagina" src=""  width="100%" height="100%" frameborder="0"></iframe> 
     </div>

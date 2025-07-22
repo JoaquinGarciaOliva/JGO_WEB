@@ -21,9 +21,9 @@ html, body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-  /*  justify-content: center;*/
- /*   align-items: center;*/
-   /* text-align: center;*/
+   /*   justify-content: center;*/
+   /*   align-items: center;*/
+   /*   text-align: center;*/
 }
 
 .left-panel {
@@ -50,7 +50,7 @@ html, body {
 
 .dividir {
     width: 8px; /* Ancho del divisor */
-    background-color: #607d8b; /* Color del divisor */
+    background-color: skyblue; /* Color del divisor */
     cursor: ew-resize; /* Cursor para indicar que se puede redimensionar horizontalmente */
     flex-shrink: 0; /* Evita que el divisor se encoja */
 }
