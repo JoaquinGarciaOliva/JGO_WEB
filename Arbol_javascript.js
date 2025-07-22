@@ -15,7 +15,8 @@
        const valor3 = Datossel.getAttribute('ejemplos');        
        const valor4 = Datossel.getAttribute('ejercicios'); 
                   
-
+       if (valor4 == '')  { document.getElementById('iconejercicios').src = "Imagenes/ejercicios_off.png"; }
+                     else { document.getElementById('iconejercicios').src = "Imagenes/ejercicios.png";};
 
        if (Tiposel == 1) { actualizarIframe2(valor1); document.getElementById('iconvideo').src = "Imagenes/play_video_down.png"; }
                     else { document.getElementById('iconvideo').src = "Imagenes/play_video.png";};
@@ -23,8 +24,17 @@
                     else { document.getElementById('iconteoria').src = "Imagenes/teoria.png";};
        if (Tiposel == 3) { actualizarIframe2(valor3);document.getElementById('iconejemplos').src = "Imagenes/ejemplos_down.png"; }
                     else { document.getElementById('iconejemplos').src = "Imagenes/ejemplos.png";};
-       if (Tiposel == 4) { actualizarIframe2(valor4);document.getElementById('iconejercicios').src = "Imagenes/ejercicios_down.png"; }
-                    else { document.getElementById('iconejercicios').src = "Imagenes/ejercicios.png";};
+       if (Tiposel == 4) {
+                  if (valor4 == '') { document.getElementById('iconejercicios').src = "Imagenes/ejercicios_off.png"; }
+                  else{
+                          actualizarIframe2(valor4);
+                          document.getElementById('iconejercicios').src = "Imagenes/ejercicios_down.png";
+                   };
+                   }
+                    else { 
+                        if (valor4 == '') { document.getElementById('iconejercicios').src = "Imagenes/ejercicios_off.png"; }
+                                     else { document.getElementById('iconejercicios').src = "Imagenes/ejercicios.png";};
+                  };
     }
 
   function cambiarPropiedad(Codigosel) {      
@@ -35,6 +45,10 @@
       const valor2 = origen.getAttribute('teoria');      Datossel.setAttribute('teoria', valor2);           
       const valor3 = origen.getAttribute('ejemplos');    Datossel.setAttribute('ejemplos', valor3);          
       const valor4 = origen.getAttribute('ejercicios');  Datossel.setAttribute('ejercicios', valor4);          
+
+
+      if (valor4 == '') { document.getElementById('iconejercicios').src = "Imagenes/ejercicios_off.png"; }
+                   else { document.getElementById('iconejercicios').src = "Imagenes/ejercicios.png";};
 
       Mostrar_Web(1);
     }

@@ -24,5 +24,4 @@
             document.removeEventListener('mouseup', stopResize);
        }
 
-   
-      
+  

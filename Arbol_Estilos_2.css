@@ -118,6 +118,87 @@
         transform: scale(1.05);
       }
 
+
+/*   TOOL TIP EN LAS IMAGENES*/
+/* Contenedor del tooltip: NECESITA position: relative */
+
+.tooltip-container {
+    position: relative; /* Es crucial para posicionar el tooltip-text */
+    display: inline-block; /* Permite que el contenedor se ajuste al tamaño de la imagen */
+    cursor: pointer; /* Indica que es interactivo */
+   /* margin: 50px; /* Para asegurar espacio alrededor de la imagen */
+       
+        margin-right: 20px;
+        width: 40px;  /* 18 Ancho deseado */
+        height: 40px; /* 18 Alto deseado */
+        
+}
+
+/* Estilos de la imagen */
+.tooltip-container img {
+    border: 3px solid #007bff;
+    border-radius: 8px;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.tooltip-container img:hover {
+    transform: scale(1.03);
+}
+
+/* Estilos del texto del tooltip */
+.tooltip-text {
+    visibility: hidden; /* Oculto por defecto */
+    width: 100px; /* Ancho fijo del tooltip */
+    
+    /* CAMBIOS AQUÍ: COLORES Y TAMAÑO DE LETRA */
+    background-color: #FFFFCC; /* Fondo amarillo claro */
+    color: #000000; /* Texto negro */
+    font-size: 0.8em; /* Letra más pequeña */
+    /* FIN CAMBIOS */
+
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0; /* Un poco menos de padding por la letra pequeña */
+    position: absolute;
+    z-index: 1;
+    
+    /* CAMBIOS AQUÍ: POSICIONAMIENTO INFERIOR */
+    top: 115%; /* Posiciona el tooltip por debajo de la imagen */
+    left: 175%;
+    margin-left: -100px; /* Ajuste para centrar (la mitad de `width`) */
+    /* FIN CAMBIOS */
+
+    opacity: 0;
+    transition: opacity 0.3s, top 0.3s; /* Transición suave para la aparición */
+}
+
+/* Flecha del tooltip (opcional, para un mejor diseño) */
+.tooltip-text::after {
+     content: "";
+    position: absolute;
+    /* CAMBIO CLAVE AQUÍ: Posicionamos la flecha en la parte superior del tooltip */
+    bottom: 100%; 
+    left: 50%;
+    margin-left: -5px; /* Centra la flecha */
+    border-width: 5px;
+    border-style: solid;
+    /* CAMBIO CLAVE AQUÍ: Las fronteras para que apunten hacia arriba, usando el color del fondo */
+    border-color: transparent transparent #FFFFCC transparent; 
+
+}
+
+/* Mostrar el tooltip al pasar el ratón por encima del contenedor */
+.tooltip-container:hover .tooltip-text {
+    visibility: visible; /* Hace visible el tooltip */
+    opacity: 1; /* Lo hace completamente opaco */
+    /*bottom: 135%; /* Ligeramente más arriba al aparecer */
+    top:135%;
+}
+
+
 /*  ventana modal */
 
 
