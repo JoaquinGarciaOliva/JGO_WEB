@@ -1,24 +1,36 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorador Web</title>      
-       <link  id='lestilo'   rel='stylesheet' type='text/css' href='Main_Estilos.css' /> 
-       <link  id='lestilo2'  rel='stylesheet' type='text/css' href='Arbol_Estilos_2.css' />                           
- </head>
+    <title>JGO Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <link id='lestilo2'  rel='stylesheet' type='text/css' href='Arbol_Estilos_2.css' /> 
+</head>
 <body>
-    
 
-    <div class="sidebar" id="treeContainer">  
+    <div class="container">
+      <div class="panel left-panel" id="treeContainer">  
+        
         <div class="header" id="DivHeader" Tipo='' Youtube='' teoria='' ejemplos='' ejercicios=''>
-            <img id="nivel1" class="icono-cabecera" src="Imagenes/flecha_red.png" onclick="filtrarDivs(1)"></img>
-            <img id="nivel2" class="icono-cabecera" src="Imagenes/flecha_blue.png" onclick="filtrarDivs(2)"></img>
-            <img id="nivel3" class="icono-cabecera" src="Imagenes/flecha_green.png" onclick="filtrarDivs(3)"></img>
-            <img id="nivel4" class="icono-cabecera" src="Imagenes/flecha_lila.png" onclick="filtrarDivs(4)" ></img>
-            <img id="ayuda"  class="icono-cabecera" src="Imagenes/help.png"  onclick="ventanamodal('https://www.elmundo.es')" >
-            Explorador Prueba 
+            <div class="tooltip-container">
+                <img id="nivel1"  src="Imagenes/flecha_red.png" onclick="filtrarDivs(1)"></img>
+                <span class="tooltip-text">Imprescindible</span>
+             </div>
+            <div class="tooltip-container">
+              <img id="nivel2" class="icono-cabecera" src="Imagenes/flecha_blue.png" onclick="filtrarDivs(2)"></img>
+              <span class="tooltip-text">Prioritario</span>
+             </div>
+           <div class="tooltip-container">            
+              <img id="nivel3" class="icono-cabecera" src="Imagenes/flecha_green.png" onclick="filtrarDivs(3)"></img>
+               <span class="tooltip-text">Esencial</span>
+             </div>
+           <div class="tooltip-container">
+               <img id="nivel4" class="icono-cabecera" src="Imagenes/flecha_lila_down.png" onclick="filtrarDivs(4)" ></img> 
+               <span class="tooltip-text">Profundizar</span>
+             </div>           
         </div>
+
          <div class="Arbol" >
            <ul class="tree">
 
@@ -26,31 +38,33 @@
 
            </ul>
         </div>
-    </div>  
-    <div class="resizer" id="resizer"></div>
-    <div class="content" id="contentFrame">
+
+
+
+
+      </div>  
+   
+
+
+        <div class="dividir" id="resizer"></div>
+        
+        <div class="panel right-panel" id="contentFrame">
+           
           <div class="header"  >
+            <img id="ayuda"  class="icono-cabecera" src="Imagenes/help.png"  onclick="ventanamodal('https://www.elmundo.es')" >
+            
             <img  id="iconvideo"  class="icono-cabecera" src="Imagenes/play_video.png" onclick="Mostrar_Web(1)"></img>
             <img  id="iconteoria"  class="icono-cabecera" src="Imagenes/teoria.png" onclick="Mostrar_Web(2)"></img>
             <img  id="iconejemplos" class="icono-cabecera" src="Imagenes/ejemplos.png" onclick="Mostrar_Web(3)"></img>
             <img  id="iconejercicios" class="icono-cabecera" src="Imagenes/ejercicios.png" onclick="Mostrar_Web(4)" ></img>
+            Explorador Prueba 
           </div>      
           <iframe id="webviewer"  name="verpagina" src=""  width="100%" height="100%" frameborder="0"></iframe> 
-    </div>
-</body>
-
-
- <div id="myModal" class="modal-backdrop">
-        
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div class="modal-body">
-                <iframe id="modalIframe" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
+ 
         </div>
     </div>
 
-<script src="Main_javascript.js" type="text/javascript"></script>  
-<script src="Arbol_javascript.js" type="text/javascript"></script>   
-
+    <script src="script.js"></script>    
+    <script src="Arbol_javascript.js" type="text/javascript"></script>  
+</body>
 </html>

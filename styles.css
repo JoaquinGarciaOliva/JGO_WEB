@@ -1,0 +1,98 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Evita el scroll del body */
+}
+
+
+.container {
+    display: flex; /* Usa Flexbox para colocar los paneles lado a lado */
+    height: 100%; /* El contenedor ocupa toda la altura de la ventana */
+    width: 100%;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Incluye padding y border en el ancho/alto */
+}
+
+.panel {
+    flex-grow: 1; /* Permite que los paneles crezcan y se encojan */
+    padding: 20px;
+    overflow: auto; /* Habilita el scroll individual si el contenido es demasiado grande */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  /*  justify-content: center;*/
+ /*   align-items: center;*/
+   /* text-align: center;*/
+}
+
+.left-panel {
+    background-color: white;/* Un azul claro */
+    width: 30%; /* Ancho inicial */
+    border: 5px solid #2635b7;
+    min-width: 300px;
+    padding: 0px;
+    overflow: auto;
+    white-space: nowrap;
+  /* overflow-y: auto; */
+                         /*  max-width: 50%; */          
+          }
+
+.right-panel {
+    background-color: #fff3e0; /* Un naranja claro */
+    width: 70%; /* Ancho inicial */
+    padding: 0px;
+    border: 5px solid #2635b7;
+
+    /* flex-grow: 1;*/
+    /* overflow: auto; */
+}
+
+.dividir {
+    width: 8px; /* Ancho del divisor */
+    background-color: #607d8b; /* Color del divisor */
+    cursor: ew-resize; /* Cursor para indicar que se puede redimensionar horizontalmente */
+    flex-shrink: 0; /* Evita que el divisor se encoja */
+}
+
+
+/* Estilos de los paneles al pasar el ratón */
+.left-panel:hover {
+    box-shadow: inset 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+.right-panel:hover {
+    box-shadow: inset 0 0 10px rgba(255, 193, 7, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
+
+/*.right-panel {*/
+      
+
+          
+
+
+
+/* Estilos de los paneles al pasar el ratón */
+
+
+ .iframe {
+            width: 98%;
+            height: 98%;
+            border: none;
+         }
