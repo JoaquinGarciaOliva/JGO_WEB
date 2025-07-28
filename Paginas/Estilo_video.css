@@ -1,0 +1,75 @@
+/* Estilos básicos para el cuerpo de la página */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF; /* Fondo blanco */
+    font-family: Arial, sans-serif;
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+    position: relative; /* Necesario para posicionar las imágenes de las esquinas */
+    overflow: hidden; /* Evita barras de desplazamiento si las imágenes se salen un poco */
+}
+
+/* Estilos para las imágenes de las esquinas */
+.corner-image {
+    position: fixed; /* O 'absolute' si prefieres que se desplacen con el contenido */
+    width: 100px; /* Tamaño de las imágenes, ajusta si es necesario */
+    height: 100px;
+    z-index: 10; /* Asegura que estén por encima de otros elementos */
+    border: 0px solid #333; /* Borde para visualización */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.top-right {
+    top: 10px;
+    right: 10px;
+}
+
+.bottom-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+/* Contenedor del video para centrarlo */
+.video-container {
+    display: flex; /* Usa flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    min-height: 100vh; /* Ocupa toda la altura de la ventana para centrar */
+    width: 100%;
+    box-sizing: border-box; /* Incluye padding y border en el ancho/alto */
+}
+
+/* Estilos para el iframe del video de YouTube */
+.video-container iframe {
+    width: 80vw; /* Ancho del 80% del viewport width */
+    max-width: 600px; /* Ancho máximo para pantallas muy grandes */
+    height: 45vw; /* Altura para mantener una proporción 16:9 (9/16 * 80vw = 45vw) */
+    max-height: 450px; /* Altura máxima para pantallas muy grandes */
+    border: 5px solid #2635b7; /* Borde rojo alrededor del video */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Sombra para destacarlo */
+}
+
+/* Media Queries para ajustar el tamaño del video en pantallas pequeñas */
+@media (max-width: 768px) {
+    .video-container iframe {
+        width: 90vw;
+        height: 50.625vw; /* Mantiene la proporción 16:9 (9/16 * 90vw) */
+    }
+}
+
+@media (max-width: 480px) {
+    .video-container iframe {
+        width: 95vw;
+        height: 53.4375vw; /* Mantiene la proporción 16:9 (9/16 * 95vw) */
+    }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JGO - WEB - Video con URL Parameter</title>
+    <link rel="stylesheet" href="Estilo_video.css">
+</head>
+<body>
+
+    <img src="../Imagenes/Logo_Inicial.jpg" alt="ESI" class="corner-image top-left">
+    <img src="../Imagenes/Logo_Inicial.jpg" alt="ESD" class="corner-image top-right">
+    <img src="../Imagenes/Logo_Inicial.jpg" alt="EII" class="corner-image bottom-left">
+    <img src="../Imagenes/Logo_Inicial.jpg" alt="EID" class="corner-image bottom-right">
+ 
+    <div class="video-container">
+        <iframe id="dynamicVideoFrame" src="" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </div>
+
+   
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoFrame = document.getElementById('dynamicVideoFrame');
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoId = urlParams.get('videoId'); // Obtiene el valor del parámetro 'videoId'
+
+            if (videoId) {              
+                let videoCompleto= videoId ;
+                videoCompleto= "https://www.youtube.com/embed/"+ videoCompleto  + "?autoplay=1&mute=1";                           
+                videoFrame.src = videoCompleto;                
+            } else {
+                videoFrame.src = `https://www.youtube.com/watch?v=dQw4w9WgXcQ`; // Video por defecto si no hay parámetro
+                console.log("No se encontró 'videoId' en la URL. Mostrando video por defecto.");
+            }
+        });
+    </script>
+
+</body>
+</html>

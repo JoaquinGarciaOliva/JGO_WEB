@@ -1,0 +1,235 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 5px;
+    background-color: white;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #2635b7;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.exercise-list {
+    max-width: 850px;
+    margin: 0 auto;
+   /* background-color: white; #fff;*/
+   /* padding: 15px;*/
+   /* border-radius: 8px;*/
+   /* box-shadow: 0 4px 10px #2635b7;  rgba(0,0,0,0.1);*/
+}
+
+.exercise-item {
+    border: 1px solid #2635b7; /* #e0e0e0;*/
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.exercise-number {
+    font-weight: bold;
+    color: #2635b7;
+    font-size: 1.2em;
+    flex-shrink: 0;
+    margin-right: 5px;
+    min-width: 20px;
+    text-align: right;
+}
+
+.exercise-statement {
+    margin: 0;
+    flex-grow: 1;
+}
+
+
+/* --- NUEVOS ESTILOS PARA LA IMAGEN Y EL TOOLTIP --- */
+.solution-trigger-container {
+    position: relative; /* Clave para posicionar el tooltip */
+    display: inline-block; /* Permite que el contenedor se ajuste al tamaño de la imagen */
+    cursor: pointer; /* Indica que es clickable */
+    flex-shrink: 0; /* Evita que el contenedor se encoja */
+    margin-left: auto; /* Empuja el contenedor a la derecha */
+}
+
+.solution-icon {
+    width: 25px; /* Tamaño del icono */
+    height: 25px;
+    vertical-align: middle; /* Alinea la imagen con el texto */
+    transition: transform 0.2s ease;
+}
+
+.solution-icon:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+}
+
+.solution-tooltip {
+    visibility: hidden; /* Oculto por defecto */
+    width: 80px; /* Ancho del tooltip */
+    background-color: #FFFFCC; /* Fondo amarillo claro */
+    color: #000000; /* Texto negro */
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: -35px; /* Posiciona el tooltip debajo de la imagen */
+    left: 50%;
+    margin-left: -40px; /* Centra el tooltip (mitad de su ancho) */
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s; /* Transición suave */
+    font-size: 0.85em; /* Tamaño de letra pequeño */
+}
+
+/* Flecha del tooltip (apuntando hacia arriba, desde el fondo amarillo) */
+.solution-tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%; /* En la parte superior del tooltip */
+    left: 50%;
+    margin-left: -5px; /* Centra la flecha */
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #FFFFCC transparent; /* Flecha amarilla apuntando arriba */
+}
+
+/* Mostrar el tooltip al pasar el ratón por encima del contenedor */
+.solution-trigger-container:hover .solution-tooltip {
+    visibility: visible;
+    opacity: 1;
+    bottom: -25px; /* Ligeramente más arriba al aparecer, para un efecto sutil */
+}
+/* ----------------------------------------------------- */
+
+/* Estilos de la ventana modal (sin cambios relevantes) */
+.modal-backdrop {      
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color:rgba(0,0,0,0.7);
+    display: none; /*flex;*/
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color:  #2635b7; /*#fefefe;*/
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px #2635b7; /*rgba(0,0,0,0.4);*/
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.modal-content h2 {
+    color: white; /*#007bff;*/
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.close-button {
+    color: white;/*#aaa;*/
+    position: absolute;
+    top: -1px;
+    right: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #eaf3ff /* skyblue; #333;*/
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body {  
+   background-color: white;  /*#fefefe;*/ 
+   padding: 10px;
+}
+
+.modal-body p {
+    margin-bottom: 10px;
+    
+}
+
+/* Media query para pantallas pequeñas: apilar elementos */
+@media (max-width: 768px) {
+    .exercise-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .exercise-number {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .solution-trigger-container {
+        margin-left: 0; /* Elimina el margin-left auto */
+        width: 100%; /* Ocupa todo el ancho si está apilado */
+        text-align: center;
+        margin-top: 10px; /* Espacio superior para el botón */
+        display: flex; /* Para centrar el icono y tooltip en móvil */
+        justify-content: center;
+    }
+}
+
+
+
+/*math jax*/
+ ol {
+            counter-reset: my-counter;
+        }
+        li {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            position: relative;
+        }
+        li::before {
+            content: counter(my-counter) ".";
+            counter-increment: my-counter;
+            font-weight: bold;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            color: #555;
+        }
+        .solution-box {
+            border: 1px solid #d3e0f0;
+            background-color: #eaf3ff;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        .solution-box h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .solution-box ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
