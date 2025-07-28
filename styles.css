@@ -35,13 +35,13 @@ html, body {
     overflow: auto;
     white-space: nowrap;
   /* overflow-y: auto; */
-                         /*  max-width: 50%; */          
+  /*  max-width: 50%; */          
           }
 
 .right-panel {
     background-color: #fff3e0; /* Un naranja claro */
     width: 70%; /* Ancho inicial */
-    padding: 0px;
+    padding: 0px;    
     border: 5px solid #2635b7;
 
     /* flex-grow: 1;*/
@@ -50,7 +50,7 @@ html, body {
 
 .dividir {
     width: 8px; /* Ancho del divisor */
-    background-color: skyblue; /* Color del divisor */
+    background-color: #5BACF5; /*skyblue; Color del divisor */
     cursor: ew-resize; /* Cursor para indicar que se puede redimensionar horizontalmente */
     flex-shrink: 0; /* Evita que el divisor se encoja */
 }

@@ -136,7 +136,7 @@
 
 /* Estilos de la imagen */
 .tooltip-container img {
-    border: 3px solid #007bff;
+    border: 3px solid #5BACF5; /*skyblue; /*#007bff;*/
     border-radius: 8px;
     display: block; /* Elimina espacio extra debajo de la imagen */
     max-width: 100%;
@@ -212,7 +212,7 @@
     width: 100%; /* Ancho completo */
     height: 100%; /* Alto completo */
     overflow: auto; /* Habilitar desplazamiento si el contenido es demasiado grande */
-    background-color: rgba(0,0,0,0.7); /* Fondo semi-transparente negro */
+    background-color:  rgba(0,0,0,0.7);  /* Fondo semi-transparente negro */
     backdrop-filter: blur(5px); /* Efecto de desenfoque en el fondo */
     -webkit-backdrop-filter: blur(5px); /* Compatibilidad con Safari */
     display: none; /*flex;*/ /* Usamos flexbox para centrar el contenido */
@@ -222,7 +222,7 @@
 
 /**************** Contenido de la modal ***********/
 .modal-content {
-    background-color: #fff;
+    background-color: #2635b7; /*#fff;*/
     margin: 15px; /* Pequeño margen para que no toque los bordes */
     padding: 20px;
     border-radius: 10px;
@@ -239,10 +239,10 @@
 
 /* Botón para cerrar la modal */
 .close-button {
-    color: #aaa;
+    color: white;/*#aaa;*/
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: -1px;
+    right: 5px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
@@ -251,7 +251,7 @@
 
 .close-button:hover,
 .close-button:focus {
-    color: #333;
+    color: #5BACF5;; /*skyblue;  #333;*/
     text-decoration: none;
     cursor: pointer;
 }

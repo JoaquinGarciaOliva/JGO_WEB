@@ -1,3 +1,5 @@
+// *****************  SPLITTER ***************
+
 document.addEventListener('DOMContentLoaded', () => {
     const divider = document.querySelector('.dividir');
     const leftPanel = document.querySelector('.left-panel');
