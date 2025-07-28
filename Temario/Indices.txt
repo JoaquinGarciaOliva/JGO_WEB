@@ -1,0 +1,128 @@
+¡Claro! Aquí tienes un listado de los temas de matemáticas para cada nivel de la ESO y Bachillerato en España. Ten en cuenta que los nombres exactos de los temas pueden variar ligeramente entre comunidades autónomas o editoriales, pero estos son los bloques de contenido más comunes.
+
+---
+
+## 📚 Matemáticas - Educación Secundaria Obligatoria (ESO)
+
+### 1º ESO
+
+1.  **Números Naturales:** Sistema de numeración decimal, operaciones básicas (suma, resta, multiplicación, división), potencias, raíz cuadrada, jerarquía de las operaciones y resolución de problemas.
+2.  **Divisibilidad y Números Enteros:** Múltiplos y divisores, números primos y compuestos, criterios de divisibilidad, MCD y mcm, números enteros (representación, orden, operaciones).
+3.  **Fracciones:** Concepto, fracciones equivalentes, comparación, operaciones (suma, resta, multiplicación, división) y problemas.
+4.  **Números Decimales:** Concepto, operaciones, aproximación y problemas.
+5.  **Proporcionalidad:** Razón y proporción, magnitudes directa e inversamente proporcionales, reglas de tres, porcentajes, descuentos e incrementos.
+6.  **Álgebra:** Lenguaje algebraico, expresiones algebraicas, valor numérico, ecuaciones de primer grado sencillas.
+7.  **Geometría Plana:** Elementos básicos, ángulos, polígonos (clasificación, perímetros y áreas), circunferencia y círculo.
+8.  **Cuerpos Geométricos:** Poliedros (prismas, pirámides), cuerpos de revolución (cilindro, cono, esfera), áreas y volúmenes sencillos.
+9.  **Estadística y Probabilidad:** Tablas y gráficos estadísticos, variables estadísticas, frecuencia, media, moda, mediana, azar y probabilidad sencilla.
+
+---
+
+### 2º ESO
+
+1.  **Números Racionales (Fracciones y Decimales):** Repaso y ampliación de fracciones y decimales, números racionales, notación científica.
+2.  **Potencias y Raíces:** Operaciones con potencias de base entera y exponente entero, raíces cuadradas y cúbicas.
+3.  **Proporcionalidad Numérica:** Repaso de proporcionalidad directa e inversa, reparto proporcional, interés simple y compuesto.
+4.  **Lenguaje Algebraico:** Expresiones algebraicas, monomios y polinomios (operaciones básicas), identidades notables.
+5.  **Ecuaciones de Primer Grado:** Resolución de ecuaciones con paréntesis y denominadores, problemas.
+6.  **Sistemas de Ecuaciones Lineales:** Concepto, métodos de resolución (sustitución, igualación, reducción) y problemas.
+7.  **Funciones:** Concepto de función, formas de expresión (tabla, gráfica, fórmula), representación gráfica de funciones lineales.
+8.  **Geometría Plana:** Teorema de Pitágoras, semejanza, figuras planas (áreas y perímetros más complejos).
+9.  **Cuerpos Geométricos:** Áreas y volúmenes de prismas, pirámides, cilindros, conos y esferas.
+10. **Estadística y Probabilidad:** Tablas de frecuencias, gráficos, medidas de posición (media, moda, mediana), medidas de dispersión (rango), sucesos aleatorios, cálculo de probabilidades.
+
+---
+
+### 3º ESO
+
+1.  **Números Reales:** Clasificación de los números, números irracionales, notación científica, intervalos.
+2.  **Polinomios:** Operaciones con polinomios, valor numérico, regla de Ruffini, teorema del resto, raíces de un polinomio, factorización.
+3.  **Ecuaciones y Sistemas:** Ecuaciones de primer y segundo grado (fórmula general), ecuaciones bicuadradas, ecuaciones con fracciones algebraicas sencillas, sistemas de ecuaciones lineales y no lineales sencillos.
+4.  **Funciones:** Concepto, dominio y recorrido, gráficas, funciones lineales y afines, funciones cuadráticas (parábolas).
+5.  **Funciones de Proporcionalidad Inversa y otras:** Funciones racionales sencillas, funciones exponenciales y logarítmicas básicas.
+6.  **Geometría (Figuras Planas):** Teorema de Tales, semejanza de triángulos, trigonometría básica (razones trigonométricas en triángulos rectángulos).
+7.  **Cuerpos Geométricos:** Áreas y volúmenes de cuerpos geométricos complejos y truncados.
+8.  **Estadística:** Tablas de frecuencias con datos agrupados, histogramas, polígonos de frecuencia, medidas de centralización y dispersión (desviación típica).
+9.  **Probabilidad:** Sucesos compuestos, probabilidad condicionada, reglas de la probabilidad (suma y producto), diagramas de árbol.
+
+---
+
+### 4º ESO (Opciones A y B)
+
+#### Opción A (Matemáticas Orientadas a las Enseñanzas Académicas) - Preparación para Bachillerato de Ciencias/Sociales
+
+1.  **Números Reales:** Repaso de números reales, valor absoluto, errores.
+2.  **Polinomios:** Operaciones, teorema del resto, raíces, factorización, fracciones algebraicas.
+3.  **Ecuaciones e Inecuaciones:** Ecuaciones de primer y segundo grado, ecuaciones de grado superior, irracionales, exponenciales y logarítmicas sencillas, inecuaciones de primer y segundo grado.
+4.  **Sistemas de Ecuaciones:** Repaso de sistemas lineales, sistemas no lineales, inecuaciones con dos incógnitas.
+5.  **Funciones:** Repaso de funciones, características (dominio, recorrido, continuidad, simetría, monotonía), funciones elementales (polinómicas, racionales, exponenciales, logarítmicas, trigonométricas), transformaciones de funciones.
+6.  **Trigonometría:** Razones trigonométricas de un ángulo cualquiera, relaciones fundamentales, identidades trigonométricas, ecuaciones trigonométricas, resolución de triángulos.
+7.  **Geometría Analítica:** Vectores, operaciones, punto medio, distancia entre puntos, ecuación de la recta.
+8.  **Estadística Descriptiva:** Medidas de centralización, dispersión y posición, gráficos, distribuciones bidimensionales (correlación y regresión lineal).
+9.  **Probabilidad:** Sucesos, reglas de Laplace, probabilidad condicionada, probabilidad total, teorema de Bayes.
+
+#### Opción B (Matemáticas Orientadas a las Enseñanzas Aplicadas) - Preparación para Formación Profesional
+
+1.  **Números y Porcentajes:** Repaso de números reales, porcentajes, aumentos y disminuciones porcentuales, interés simple y compuesto.
+2.  **Problemas Financieros:** Cálculo de préstamos, hipotecas, amortizaciones.
+3.  **Álgebra:** Lenguaje algebraico, polinomios, ecuaciones de primer y segundo grado.
+4.  **Funciones:** Interpretación de gráficas, funciones lineales y afines, funciones cuadráticas (aplicaciones).
+5.  **Geometría:** Teorema de Tales, semejanza, figuras planas, áreas y volúmenes de cuerpos geométricos.
+6.  **Programación Lineal:** Introducción, inecuaciones lineales, sistemas de inecuaciones, región factible, función objetivo (problemas de optimización sencillos).
+7.  **Estadística:** Tablas de frecuencias, gráficos, medidas de centralización y dispersión, análisis de datos reales.
+8.  **Probabilidad:** Concepto, cálculo de probabilidades de sucesos simples.
+
+---
+
+## 🎓 Matemáticas - Bachillerato
+
+### Matemáticas I (Ciencias y Tecnología)
+
+1.  **Números Reales:** Conjuntos numéricos, intervalos, valor absoluto, potencias y raíces, logaritmos.
+2.  **Álgebra:** Polinomios (operaciones, raíces, Ruffini, factorización), fracciones algebraicas, ecuaciones (polinómicas de grado superior, irracionales, exponenciales, logarítmicas), inecuaciones.
+3.  **Geometría Analítica:** Vectores en el plano, operaciones, punto medio, distancia, ecuación de la recta, posiciones relativas de rectas, ángulo y distancia entre puntos y rectas.
+4.  **Funciones Elementales:** Repaso de funciones, tipos de funciones (polinómicas, racionales, exponenciales, logarítmicas, trigonométricas), características, transformaciones.
+5.  **Límites y Continuidad de Funciones:** Concepto de límite, cálculo de límites, límites infinitos, asíntotas, continuidad de funciones.
+6.  **Derivadas:** Concepto de derivada, interpretación geométrica, reglas de derivación, aplicación al estudio de funciones (monotonía, extremos relativos).
+7.  **Estadística Descriptiva Bidimensional:** Distribuciones bidimensionales, coeficiente de correlación de Pearson, recta de regresión.
+8.  **Combinatoria y Probabilidad:** Técnicas de recuento (variaciones, permutaciones, combinaciones), probabilidad (sucesos, reglas, probabilidad condicionada, probabilidad total, teorema de Bayes).
+
+---
+
+### Matemáticas II (Ciencias y Tecnología)
+
+1.  **Matrices y Determinantes:** Tipos de matrices, operaciones con matrices, matriz inversa, rango de una matriz, determinantes (cálculo, propiedades).
+2.  **Sistemas de Ecuaciones Lineales:** Clasificación de sistemas, método de Gauss, teorema de Rouché-Fröbenius, regla de Cramer, discusión y resolución de sistemas.
+3.  **Geometría en el Espacio:** Vectores en el espacio, operaciones, producto escalar, vectorial y mixto, ecuaciones de la recta y el plano, posiciones relativas, ángulos y distancias.
+4.  **Límites y Continuidad de Funciones:** Revisión, indeterminaciones, asíntotas.
+5.  **Cálculo Diferencial:** Teoremas de Rolle y del Valor Medio, aplicación a la monotonía y curvatura, problemas de optimización.
+6.  **Representación de Funciones:** Estudio completo de funciones (dominio, simetría, asíntotas, monotonía, extremos, curvatura, puntos de inflexión) y representación gráfica.
+7.  **Integrales:** Primitiva de una función, integral indefinida (métodos de integración), integral definida (Regla de Barrow, área bajo una curva).
+
+---
+
+### Matemáticas Aplicadas a las Ciencias Sociales I
+
+1.  **Números Reales:** Conjuntos numéricos, valor absoluto, potencias y logaritmos.
+2.  **Álgebra:** Polinomios, ecuaciones e inecuaciones (lineales, cuadráticas, con valor absoluto, racionales y exponenciales/logarítmicas sencillas), sistemas de ecuaciones.
+3.  **Sistemas de Ecuaciones Lineales:** Resolución de sistemas por métodos numéricos y gráficos.
+4.  **Programación Lineal:** Planteamiento de problemas, región factible, vértices, función objetivo, optimización.
+5.  **Funciones:** Revisión de funciones elementales (polinómicas, racionales, exponenciales, logarítmicas), dominio, recorrido, continuidad, monotonía, representación gráfica.
+6.  **Estadística Descriptiva:** Medidas de centralización, dispersión y posición, variables unidimensionales y bidimensionales, tablas, gráficos, correlación y regresión lineal.
+7.  **Probabilidad:** Concepto, sucesos, reglas de Laplace, probabilidad condicionada, probabilidad total, teorema de Bayes, tablas de contingencia.
+
+---
+
+### Matemáticas Aplicadas a las Ciencias Sociales II
+
+1.  **Matrices:** Tipos de matrices, operaciones, matriz inversa.
+2.  **Sistemas de Ecuaciones Lineales:** Resolución de sistemas compatibles determinados (método de Gauss, método de la inversa), planteamiento de problemas.
+3.  **Límites y Continuidad de Funciones:** Concepto de límite, asíntotas, continuidad, interpretación económica y social.
+4.  **Derivadas:** Concepto de derivada, reglas de derivación, aplicación al estudio de funciones (crecimiento, decrecimiento, extremos relativos) y problemas de optimización.
+5.  **Integrales:** Concepto de primitiva, integral indefinida, integral definida, aplicaciones al cálculo de áreas.
+6.  **Estadística:** Distribuciones de probabilidad (binomial y normal), tipificación de la variable, cálculo de probabilidades.
+7.  **Inferencia Estadística:** Muestreo (tipos, error muestral), estimación por intervalos de confianza (media, proporción).
+
+---
+
+Espero que este listado detallado te sea de gran ayuda. ¡Mucha suerte con las matemáticas!
