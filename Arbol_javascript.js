@@ -20,7 +20,7 @@
        if (valor2 == '') { valor2 ='Paginas/Pagina_Inicial.html';}; 
        if (valor3 == '') { valor3 ='Paginas/Pagina_Inicial.html';}; 
        if (valor4 == '') { valor4 ='Paginas/Pagina_Inicial.html';};
-       alert(valor1); alert(Tiposel);
+       
 
        if (Tiposel == 1) { actualizarIframe2(valor1); document.getElementById('iconvideo').src = "Imagenes/play_video_down.png"; }
                     else { document.getElementById('iconvideo').src = "Imagenes/play_video.png";};
