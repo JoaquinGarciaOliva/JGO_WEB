@@ -16,10 +16,10 @@
        let valor3 = Datossel.getAttribute('ejemplos');       
        let valor4 = Datossel.getAttribute('ejercicios'); 
      
-       if (valor1 == '') { valor1 ='Paginas/Pagina_inicial.html';};          
-       if (valor2 == '') { valor2 ='Paginas/Pagina_inicial.html';}; 
-       if (valor3 == '') { valor3 ='Paginas/Pagina_inicial.html';}; 
-       if (valor4 == '') { valor4 ='Paginas/Pagina_inicial.html';};
+       if (valor1 == '') { valor1 ='Paginas/Pagina_Inicial.html';};          
+       if (valor2 == '') { valor2 ='Paginas/Pagina_Inicial.html';}; 
+       if (valor3 == '') { valor3 ='Paginas/Pagina_Inicial.html';}; 
+       if (valor4 == '') { valor4 ='Paginas/Pagina_Inicial.html';};
       
 
        if (Tiposel == 1) { actualizarIframe2(valor1); document.getElementById('iconvideo').src = "Imagenes/play_video_down.png"; }
