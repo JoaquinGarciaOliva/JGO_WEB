@@ -1,0 +1,91 @@
+  
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;          /* Elimina el margen por defecto del body */
+    padding: 0;         /* Elimina el padding por defecto del body */
+    background-color: #C4E8F5; /* El color de *fuera* del borde (azul claro) */
+    color: #333;        /* Color de texto por defecto */
+}
+
+.container {
+    background-color: #FFFFFF; /* El color de *dentro* del borde (blanco) */
+    max-width: 800px;
+    margin: 30px auto;  /* Centra el contenedor y le da un margen superior/inferior */
+    padding: 20px;      /* Añade padding dentro del borde para que el contenido no pegue al borde */
+    
+    border: 3px solid #2635b7; /* El borde azul oscuro */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+        h1, h2, h3 {
+            color: #B00B22; /*#CC1010; #0056b3;*/
+        }
+        h1 {
+             text-align: center;
+             margin-bottom: 30px;
+             
+             font-size: 18pt; 
+	     font-weight: bold; 
+	     font-family: 'Times New Roman';
+        }
+       h2 {
+             text-align: left;
+             margin-bottom: 30px;
+             padding-left: 50px;
+             font-size: 16pt; 
+	     font-weight: bold; 
+	     font-family: 'Times New Roman';
+             color: black;
+        }
+ 
+
+        .li-tres {
+            color: #2635b7; /* Azul oscuro */            
+            margin-bottom: 8px; /* Espacio entre elementos */
+        }
+
+        ul {
+            list-style-type: disc;
+            list-style-type: none; 
+            margin-left: 20px;
+            padding-left: 0; /* Asegura que el padding no afecte la posición de los puntos */
+        }
+        ol {
+            list-style-type: decimal;
+            list-style-type: none; 
+            margin-left: 20px;
+            padding-left: 40px;
+            
+        }
+
+        strong {
+            color: #2635b7;
+        }
+
+        /* --- Estilos para los tipos de LI --- */
+        .li-uno {
+            color: #2635b7; /* Azul oscuro */
+            font-weight: bold; /* Para que destaquen más */
+            margin-bottom: 8px; /* Espacio entre elementos */
+        }
+
+        .li-dos {
+            color: #2635b7;   /* Amarillo ocre / Dorado oscuro */
+            font-style: italic; /* Para diferenciarlos visualmente */
+            margin-bottom: 5px;
+        }
+
+       .li-tres {
+            color: #00008B; /* Azul oscuro */            
+            margin-bottom: 8px; /* Espacio entre elementos */
+        }
+
+        /* Ajustes para los sub-ul/ol anidados si usan las clases de color */
+        .li-uno ul, .li-dos ul,
+        .li-uno ol, .li-dos ol {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+  
