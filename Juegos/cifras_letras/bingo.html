@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Matemático 1-100</title>
+    <!-- Incluimos Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilo personalizado para el número actual sorteado */
+        .drawn-number-display {
+            font-size: 6rem; /* Gran tamaño para el número */
+            font-weight: 900;
+            color: #0d47a1; /* Azul oscuro */
+            min-height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            background: #ffffff;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Clase para ocultar el número (sin modificar el layout) */
+        .hidden-number {
+            color: transparent; /* Oculta el texto sin cambiar el tamaño de la caja */
+            text-shadow: none;
+            user-select: none; /* Evita que se seleccione y se revele */
+        }
+
+        /* Animación de entrada para el número */
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilo para los ítems del historial */
+        .history-item {
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.2s;
+        }
+
+        .history-item:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen p-4 md:p-8">
+
+    <header class="text-center mb-10">
+        <h1 class="text-4xl font-extrabold text-blue-800 border-b-4 border-yellow-500 pb-3 inline-block">
+            Bingo Matemático 1-100
+        </h1>
+    </header>
+
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <!-- Columna de Controles y Sorteo Actual (Columna 1) -->
+        <div class="lg:col-span-1 flex flex-col items-center">
+            
+            <div class="w-full bg-white p-6 rounded-xl shadow-lg mb-6">
+                <h2 class="text-xl font-semibold text-gray-700 mb-4 text-center">Controles de Juego</h2>
+                <button id="drawButton" class="w-full py-3 mb-4 bg-green-600 text-white font-bold rounded-lg shadow-md hover:bg-green-700 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span class="text-2xl mr-2">🎲</span> Sortear Nuevo Número
+                </button>
+                
+                <!-- BOTÓN AÑADIDO: Mostrar Respuesta -->
+                <button id="revealButton" class="w-full py-3 mb-4 bg-yellow-500 text-white font-bold rounded-lg shadow-md hover:bg-yellow-600 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span class="text-2xl mr-2">💡</span> Mostrar Respuesta
+                </button>
+                
+                <button id="resetButton" class="w-full py-2 bg-red-500 text-white font-bold rounded-lg shadow-md hover:bg-red-600 transition duration-200">
+                    <span class="text-xl mr-2">🔄</span> Reiniciar Partida
+                </button>
+            </div>
+
+            <div class="w-full bg-yellow-100 p-6 rounded-xl shadow-lg border-2 border-yellow-400">
+                <h2 class="text-xl font-semibold text-gray-700 mb-4 text-center">Número Sorteado</h2>
+                <div id="drawnNumber" class="drawn-number-display hidden-number mb-4">
+                    --
+                </div>
+                <p id="mathClue" class="text-center text-lg font-medium text-blue-900 min-h-[40px]">
+                    Presiona "Sortear Nuevo Número"
+                </p>
+            </div>
+            <div id="remainingMessage" class="mt-4 text-sm text-gray-600 font-medium">
+                Quedan 100 números en el bombo.
+            </div>
+
+        </div>
+
+        <!-- Columna de Historial (Columnas 2 y 3) -->
+        <div class="lg:col-span-2">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b pb-2">Historial de Sorteo</h2>
+            <div id="historyLog" class="bg-white rounded-xl shadow-xl overflow-y-auto max-h-[600px] border border-gray-200">
+                <p class="p-4 text-gray-500 text-center" id="emptyMessage">Aquí aparecerán los números sorteados y sus pistas.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const drawButton = document.getElementById('drawButton');
+        const revealButton = document.getElementById('revealButton'); // Nuevo botón
+        const resetButton = document.getElementById('resetButton');
+        const drawnNumberDisplay = document.getElementById('drawnNumber');
+        const mathClueDisplay = document.getElementById('mathClue');
+        const historyLog = document.getElementById('historyLog');
+        const remainingMessage = document.getElementById('remainingMessage');
+
+        let numberPool = [];
+        let currentClue = ''; // Almacena la pista para el historial
+        let currentNumber = 0; // Almacena el número actual
+        const MAX_NUMBER = 100;
+
+        // --- Lógica del Generador de Pistas Matemáticas (sin cambios) ---
+        
+        /**
+         * Genera una pista matemática simple (propiedad o operación) para un número.
+         * @param {number} num El número sorteado (1-100).
+         * @returns {string} La pista o definición.
+         */
+        function generateMathClue(num) {
+            // Caso especial para 1
+            if (num === 1) return "El único entero positivo que no es primo ni compuesto.";
+
+            // 1. Array de posibles pistas y propiedades
+            const clues = [];
+
+            // Propiedades
+            if (num % 10 === 0) clues.push(`Es un múltiplo de diez: ${num / 10} × 10.`); // 10, 20, 30...
+            if (num % 2 === 0) clues.push(`Es un número par. La mitad es ${num / 2}.`); // Par
+            
+            const sqrt = Math.sqrt(num);
+            if (Number.isInteger(sqrt)) clues.push(`Es un cuadrado perfecto: ${sqrt} × ${sqrt}.`); // Cuadrado perfecto
+            
+            // Números compuestos o especiales
+            if (num < 10) clues.push(`Es un número de una sola cifra.`);
+            if (num > 90) clues.push(`Es un número cercano al 100.`);
+
+            // Operaciones
+            
+            // Suma
+            const num1_sum = Math.floor(Math.random() * (num - 1)) + 1;
+            const num2_sum = num - num1_sum;
+            clues.push(`Suma: ${num1_sum} + ${num2_sum}.`);
+
+            // Resta
+            const offset_sub = Math.floor(Math.random() * 50) + 1;
+            const largeNum_sub = num + offset_sub;
+            clues.push(`Resta: ${largeNum_sub} - ${offset_sub}.`);
+
+            // Multiplicación (solo si es compuesto)
+            for (let i = 2; i <= Math.floor(num / 2); i++) {
+                if (num % i === 0) {
+                    clues.push(`Multiplicación: ${i} × ${num / i}.`);
+                    break; 
+                }
+            }
+
+            // Si es primo (no entró en el bucle de multiplicación)
+            if (clues.length === 2 && num % 2 !== 0 && num > 1) { // 2 porque siempre tiene suma y resta
+                 clues.push(`Es un número primo.`); 
+            }
+            
+            // 2. Selección aleatoria de una pista
+            const selectedClue = clues[Math.floor(Math.random() * clues.length)];
+
+            return selectedClue;
+        }
+
+        // --- Lógica Principal del Juego ---
+
+        function initializeGame() {
+            // Inicializa el bombo (pool) con números del 1 al 100
+            numberPool = Array.from({ length: MAX_NUMBER }, (_, i) => i + 1);
+            historyLog.innerHTML = `<p class="p-4 text-gray-500 text-center" id="emptyMessage">Aquí aparecerán los números sorteados y sus pistas.</p>`;
+            
+            drawnNumberDisplay.textContent = '--';
+            drawnNumberDisplay.classList.add('hidden-number'); // Ocultar
+            
+            mathClueDisplay.textContent = 'Presiona "Sortear Nuevo Número"';
+            
+            // Resetear estados
+            currentNumber = 0;
+            currentClue = '';
+            
+            remainingMessage.textContent = `Quedan ${MAX_NUMBER} números en el bombo.`;
+            drawButton.disabled = false;
+            revealButton.disabled = true; // Deshabilitar el botón de respuesta al inicio
+        }
+
+        function drawNumber() {
+            // Guardar la respuesta anterior en el historial si existe
+            if (currentNumber !== 0) {
+                addToHistory(currentNumber, currentClue);
+            }
+
+            if (numberPool.length === 0) {
+                // Usar mensaje modal personalizado en lugar de alert()
+                showModal('¡El bombo está vacío! Presiona "Reiniciar Partida" para empezar de nuevo.');
+                drawButton.disabled = true;
+                revealButton.disabled = true;
+                return;
+            }
+
+            // 1. Sortea un índice aleatorio
+            const randomIndex = Math.floor(Math.random() * numberPool.length);
+            const drawnNum = numberPool[randomIndex];
+
+            // 2. Remueve el número sorteado del pool
+            numberPool.splice(randomIndex, 1);
+            
+            // 3. Genera la pista matemática
+            const clue = generateMathClue(drawnNum);
+
+            // 4. Almacena el número y la pista actuales
+            currentNumber = drawnNum;
+            currentClue = clue;
+
+            // 5. Actualiza la vista del número actual (OCULTANDO EL NÚMERO)
+            drawnNumberDisplay.classList.remove('fade-in');
+            void drawnNumberDisplay.offsetWidth; // Forzar reflow para reiniciar la animación
+            
+            drawnNumberDisplay.textContent = drawnNum;
+            drawnNumberDisplay.classList.add('hidden-number'); // Asegura que esté oculto
+            drawnNumberDisplay.classList.add('fade-in');
+
+            mathClueDisplay.textContent = clue;
+
+            // 6. Habilita el botón de revelación
+            revealButton.disabled = false;
+
+            // 7. Actualiza el mensaje de restantes
+            remainingMessage.textContent = `Quedan ${numberPool.length} números en el bombo.`;
+
+            // 8. Deshabilita si es el último
+            if (numberPool.length === 0) {
+                drawButton.disabled = true;
+                mathClueDisplay.textContent = '¡Este es el último número! Adivínalo.';
+            }
+        }
+        
+        function revealNumber() {
+            if (currentNumber === 0) return;
+
+            // 1. Revelar el número
+            drawnNumberDisplay.classList.remove('hidden-number');
+            
+            // 2. Actualizar la pista para indicar que es la respuesta
+            mathClueDisplay.textContent = `RESPUESTA: ${currentClue}`;
+
+            // 3. Deshabilitar el botón de respuesta hasta el próximo sorteo
+            revealButton.disabled = true;
+
+            // Si es el último número, la función drawNumber lo añade al historial, si no, se añade ahora
+            if (numberPool.length === 0 && drawButton.disabled) {
+                 addToHistory(currentNumber, currentClue);
+                 currentNumber = 0; // Se marca como guardado
+            }
+        }
+        
+        function addToHistory(num, clue) {
+             const newItem = document.createElement('div');
+            newItem.classList.add('history-item', 'fade-in', 'flex', 'flex-col', 'sm:flex-row', 'justify-between');
+            newItem.innerHTML = `
+                <span class="font-bold text-lg text-blue-800">${num}:</span> 
+                <span class="text-gray-700">${clue}</span>
+            `;
+            
+            // Elimina el mensaje de vacío si existe
+            const emptyMsg = document.getElementById('emptyMessage');
+            if (emptyMsg) {
+                historyLog.innerHTML = '';
+            }
+            
+            // Inserta el nuevo elemento al principio (para que el más reciente esté arriba)
+            historyLog.prepend(newItem);
+        }
+        
+        // Función para el modal de advertencia (sustituye a alert())
+        function showModal(message) {
+            // Creamos un modal simple en el DOM si no existe
+            let modal = document.getElementById('custom-modal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'custom-modal';
+                modal.className = 'fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none';
+                modal.innerHTML = `
+                    <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full transform scale-90 transition-transform duration-300">
+                        <h3 class="text-xl font-bold text-red-600 mb-4">Advertencia</h3>
+                        <p id="modal-message" class="text-gray-700 mb-6"></p>
+                        <button id="modal-close" class="w-full py-2 bg-red-500 text-white font-bold rounded-lg hover:bg-red-600">Entendido</button>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+
+                document.getElementById('modal-close').addEventListener('click', () => {
+                    modal.classList.remove('opacity-100', 'pointer-events-auto');
+                    modal.querySelector('div').classList.remove('scale-100');
+                    modal.querySelector('div').classList.add('scale-90');
+                });
+            }
+
+            document.getElementById('modal-message').textContent = message;
+            
+            // Mostrar modal con transición
+            setTimeout(() => {
+                modal.classList.add('opacity-100', 'pointer-events-auto');
+                modal.querySelector('div').classList.remove('scale-90');
+                modal.querySelector('div').classList.add('scale-100');
+            }, 10);
+        }
+
+
+        // --- Event Listeners ---
+
+        drawButton.addEventListener('click', drawNumber);
+        revealButton.addEventListener('click', revealNumber);
+        resetButton.addEventListener('click', initializeGame);
+
+        // Inicializa el juego al cargar la página
+        window.onload = initializeGame;
+    </script>
+</body>
+</html>

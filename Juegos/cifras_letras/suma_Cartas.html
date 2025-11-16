@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma de Cartas Aleatorias</title>
+    <!-- Incluimos Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Estilos para el mazo de cartas (visual) */
+        .deck-visual {
+            width: 100px;
+            height: 150px;
+            background-color: #0d47a1; /* Azul profundo */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 
+                        0 0 0 5px rgba(255, 255, 255, 0.5) inset;
+            transform: translateY(0);
+            transition: transform 0.2s ease-out;
+            margin-right: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Estilo para la carta boca arriba */
+        .card-up {
+            width: 100px;
+            height: 150px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+            font-weight: 900;
+            background-color: #fff;
+            color: #1a202c;
+            border: 4px solid #f97316; /* Naranja vibrante */
+            position: relative;
+            overflow: hidden;
+            z-index: 20;
+        }
+
+        /* Animación para el cambio de número */
+        .animate-draw {
+            animation: cardDraw 0.5s ease-out;
+        }
+
+        @keyframes cardDraw {
+            0% { transform: scale(0.8) translateY(20px); opacity: 0; }
+            50% { transform: scale(1.1) translateY(0); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        /* Estilo para historial */
+        .history-item-positive {
+            color: #10b981; /* Verde esmeralda */
+            font-weight: bold;
+        }
+
+        .history-item-negative {
+            color: #ef4444; /* Rojo */
+            font-weight: bold;
+        }
+
+        /* Estilo para la suma total */
+        .total-sum {
+            font-size: 2.5rem;
+            font-weight: 900;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-4 md:p-10">
+
+    <header class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold text-blue-800 border-b-4 border-orange-500 pb-3 inline-block">
+            Simulador de Mazo de Cartas
+        </h1>
+        <p class="text-gray-600 mt-2">Suma números aleatorios de una sola cifra ($\pm 1$ a $\pm 9$).</p>
+    </header>
+
+    <main class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <!-- Columna de Controles y Suma (Columna 1) -->
+        <div class="lg:col-span-1 flex flex-col items-center space-y-6">
+            
+            <!-- Configuración del Intervalo -->
+            <div class="w-full bg-white p-5 rounded-xl shadow-lg border border-gray-200">
+                <label for="interval-select" class="block text-md font-semibold text-gray-700 mb-2">
+                    Frecuencia de Sorteo
+                </label>
+                <select id="interval-select" class="w-full p-2 border border-gray-300 rounded-lg shadow-inner focus:ring-orange-500 focus:border-orange-500">
+                    <option value="1000">1 segundo</option>
+                    <option value="2000" selected>2 segundos</option>
+                    <option value="3000">3 segundos</option>
+                    <option value="4000">4 segundos</option>
+                    <option value="5000">5 segundos</option>
+                </select>
+            </div>
+
+            <!-- Controles de Acción -->
+            <div class="w-full bg-white p-5 rounded-xl shadow-lg border border-gray-200 space-y-3">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3 text-center">Controles</h2>
+                
+                <button id="toggleButton" class="w-full py-3 bg-green-500 text-white font-bold rounded-lg shadow-md hover:bg-green-600 transition duration-200">
+                    <span class="text-xl mr-2">▶️</span> INICIAR SORTEO
+                </button>
+                
+                <button id="revealSumButton" class="w-full py-3 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-blue-600 transition duration-200">
+                    <span class="text-xl mr-2">🧮</span> Mostrar Suma Total
+                </button>
+                
+                <button id="resetButton" class="w-full py-2 bg-red-500 text-white font-bold rounded-lg shadow-md hover:bg-red-600 transition duration-200">
+                    <span class="text-xl mr-2">🔄</span> Reiniciar Partida
+                </button>
+            </div>
+            
+            <!-- Área de Suma Total -->
+            <div class="w-full bg-orange-100 p-5 rounded-xl shadow-inner border-2 border-orange-400 text-center">
+                <p class="text-gray-700 font-semibold mb-2">SUMA ACUMULADA</p>
+                <div id="sumDisplay" class="total-sum text-blue-900">
+                    0
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Columna de Mazo y Historial (Columnas 2 y 3) -->
+        <div class="lg:col-span-2 flex flex-col">
+            
+            <!-- Mazo y Carta Actual -->
+            <div class="flex items-center justify-center mb-8 p-6 bg-white rounded-xl shadow-xl">
+                
+                <!-- Mazo Boca Abajo -->
+                <div class="deck-visual flex items-center justify-center text-white text-xl font-bold">
+                    MAZO
+                </div>
+
+                <!-- Flecha de Sorteo -->
+                <div class="text-4xl text-gray-500 mx-4">
+                    ➡️
+                </div>
+
+                <!-- Carta Boca Arriba (Display) -->
+                <div id="cardDisplay" class="card-up text-gray-500">
+                    ?
+                </div>
+            </div>
+            
+            <!-- Historial -->
+            <div class="flex-grow">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b pb-2">Historial de Cartas</h2>
+                <div id="historyLog" class="bg-white rounded-xl shadow-xl overflow-y-auto max-h-[350px] border border-gray-200 p-4 space-y-2">
+                    <p class="text-gray-500 text-center">Las cartas sorteadas aparecerán aquí.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const intervalSelect = document.getElementById('interval-select');
+        const toggleButton = document.getElementById('toggleButton');
+        const revealSumButton = document.getElementById('revealSumButton');
+        const resetButton = document.getElementById('resetButton');
+        const cardDisplay = document.getElementById('cardDisplay');
+        const sumDisplay = document.getElementById('sumDisplay');
+        const historyLog = document.getElementById('historyLog');
+
+        let drawingIntervalId = null;
+        let isDrawing = false;
+        let drawnNumbers = [];
+        let currentTotal = 0;
+        let isSumVisible = false;
+
+        // --- Funciones de Lógica del Juego ---
+
+        /**
+         * Genera un número aleatorio de una sola cifra, positivo o negativo, excluyendo el 0.
+         * Rango: [-9, -1] U [1, 9]
+         * @returns {number} El número sorteado.
+         */
+        function generateRandomNumber() {
+            let num = Math.floor(Math.random() * 9) + 1; // 1 a 9
+            if (Math.random() < 0.5) {
+                num *= -1; // -1 a -9
+            }
+            return num;
+        }
+
+        /**
+         * Sortea una nueva carta, actualiza la suma y el historial.
+         */
+        function drawCard() {
+            const newNum = generateRandomNumber();
+            
+            drawnNumbers.push(newNum);
+            currentTotal += newNum;
+
+            // 1. Actualizar el display de la carta con animación
+            cardDisplay.classList.remove('animate-draw');
+            // Forzar reflow para reiniciar la animación
+            void cardDisplay.offsetWidth; 
+
+            cardDisplay.textContent = newNum;
+            // Estilo por signo
+            cardDisplay.style.backgroundColor = newNum > 0 ? '#10b981' : '#ef4444'; // Verde o Rojo
+            cardDisplay.style.color = 'white';
+            cardDisplay.classList.add('animate-draw');
+            
+            // 2. Ocultar la suma total si se ha sacado una nueva carta
+            if (isSumVisible) {
+                sumDisplay.textContent = '???';
+                isSumVisible = false;
+                revealSumButton.textContent = '🧮 Mostrar Suma Total';
+                sumDisplay.classList.remove('text-blue-500', 'font-mono');
+                sumDisplay.classList.add('text-blue-900');
+            }
+
+
+            // 3. Añadir al historial
+            const listItem = document.createElement('div');
+            const signClass = newNum > 0 ? 'history-item-positive' : 'history-item-negative';
+            const sign = newNum > 0 ? '+' : '';
+            
+            listItem.classList.add('p-1', 'border-b', 'border-gray-100', 'flex', 'justify-between', 'items-center', 'text-gray-700');
+            listItem.innerHTML = `
+                <span class="font-medium">Carta #${drawnNumbers.length}:</span>
+                <span class="text-xl ${signClass}">${sign}${newNum}</span>
+            `;
+
+            // Insertar al inicio del historial
+            historyLog.prepend(listItem);
+        }
+
+        /**
+         * Inicia, pausa o reanuda el sorteo de cartas.
+         */
+        function toggleDrawing() {
+            if (isDrawing) {
+                // Pausar
+                clearInterval(drawingIntervalId);
+                drawingIntervalId = null;
+                isDrawing = false;
+                toggleButton.textContent = '▶️ REANUDAR SORTEO';
+                toggleButton.classList.remove('bg-orange-500', 'hover:bg-orange-600');
+                toggleButton.classList.add('bg-green-500', 'hover:bg-green-600');
+            } else {
+                // Iniciar o Reanudar
+                const intervalTime = parseInt(intervalSelect.value);
+                
+                // Si es la primera vez, dibujar inmediatamente
+                if (drawnNumbers.length === 0) {
+                    drawCard();
+                }
+
+                drawingIntervalId = setInterval(drawCard, intervalTime);
+                isDrawing = true;
+                toggleButton.textContent = '⏸️ PAUSAR SORTEO';
+                toggleButton.classList.remove('bg-green-500', 'hover:bg-green-600');
+                toggleButton.classList.add('bg-orange-500', 'hover:bg-orange-600');
+            }
+        }
+
+        /**
+         * Muestra el resultado de la suma total.
+         */
+        function showTotalSum() {
+            if (isSumVisible) {
+                sumDisplay.textContent = '???';
+                isSumVisible = false;
+                revealSumButton.textContent = '🧮 Mostrar Suma Total';
+                sumDisplay.classList.remove('text-blue-500', 'font-mono');
+                sumDisplay.classList.add('text-blue-900');
+
+            } else {
+                sumDisplay.textContent = currentTotal;
+                isSumVisible = true;
+                revealSumButton.textContent = 'Esconder Suma';
+                
+                // Resaltar el resultado
+                sumDisplay.classList.remove('text-blue-900');
+                sumDisplay.classList.add('text-blue-500', 'font-mono');
+            }
+        }
+        
+        /**
+         * Reinicia el juego a su estado inicial.
+         */
+        function initializeGame() {
+            // Limpiar intervalo si está corriendo
+            if (drawingIntervalId) {
+                clearInterval(drawingIntervalId);
+                drawingIntervalId = null;
+            }
+
+            // Resetear variables de estado
+            isDrawing = false;
+            drawnNumbers = [];
+            currentTotal = 0;
+            isSumVisible = false;
+
+            // Resetear elementos de la interfaz
+            toggleButton.textContent = '▶️ INICIAR SORTEO';
+            toggleButton.classList.remove('bg-orange-500', 'hover:bg-orange-600');
+            toggleButton.classList.add('bg-green-500', 'hover:bg-green-600');
+            
+            cardDisplay.textContent = '?';
+            cardDisplay.style.backgroundColor = '#fff';
+            cardDisplay.style.color = '#d1d5db';
+            cardDisplay.classList.remove('animate-draw');
+
+            sumDisplay.textContent = '0';
+            sumDisplay.classList.remove('text-blue-500', 'font-mono');
+            sumDisplay.classList.add('text-blue-900');
+            revealSumButton.textContent = '🧮 Mostrar Suma Total';
+            
+            historyLog.innerHTML = '<p class="text-gray-500 text-center">Las cartas sorteadas aparecerán aquí.</p>';
+        }
+
+
+        // --- Event Listeners ---
+        
+        // El botón principal maneja Iniciar/Pausar/Reanudar
+        toggleButton.addEventListener('click', toggleDrawing);
+        
+        // Botón para mostrar la suma
+        revealSumButton.addEventListener('click', showTotalSum);
+
+        // Botón para reiniciar
+        resetButton.addEventListener('click', initializeGame);
+
+        // Inicializar el juego al cargar la página
+        window.onload = initializeGame;
+    </script>
+</body>
+</html>

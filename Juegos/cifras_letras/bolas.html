@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Bolas Aleatorias y Contador</title>
+    <!-- Incluimos Tailwind CSS para estilos de utilidad y diseño -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos personalizados para las bolas */
+        .ball-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            min-height: 100px;
+            padding: 1rem;
+        }
+
+        .ball {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.5rem;
+            width: 70px;
+            height: 70px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease-out;
+            margin: 5px;
+            flex-shrink: 0; /* Evita que las bolas se achiquen en pantallas pequeñas */
+        }
+
+        .ball-blue {
+            background-color: #1a237e; /* Azul Marino */
+            color: white;
+            border: 4px solid #4fc3f7;
+        }
+
+        .ball-red {
+            background-color: #f44336; /* Rojo */
+            color: white;
+            font-size: 2rem;
+            width: 90px;
+            height: 90px;
+            margin-left: 20px; /* Separación de las bolas azules */
+            border: 4px solid #ffccbc;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Animación para la bola roja */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Estilo para el contador */
+        .timer-display {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #1a237e;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e0f7fa;
+            border: 3px solid #0d47a1;
+        }
+
+        .timer-finished {
+            color: #f44336;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-4 md:p-8">
+
+    <header class="text-center mb-10">
+        <h1 class="text-4xl font-extrabold text-blue-900 border-b-4 border-teal-500 pb-2 inline-block">Sorteo y Cuenta Atrás</h1>
+    </header>
+
+    <!-- Controles de Configuración -->
+    <div class="flex flex-wrap justify-center gap-4 mb-8 p-4 bg-white shadow-lg rounded-xl">
+        
+        <!-- Desplegable: Número de Bolas Azules -->
+        <div class="flex flex-col items-center">
+            <label for="num-balls-select" class="text-sm font-semibold text-gray-700 mb-1">Bolas Azules (5-10):</label>
+            <select id="num-balls-select" class="p-2 border border-gray-300 rounded-lg shadow-inner focus:ring-blue-500 focus:border-blue-500">
+                <script>
+                    // Generar opciones de 5 a 10
+                    for(let i = 5; i <= 10; i++) {
+                        document.write(`<option value="${i}" ${i === 7 ? 'selected' : ''}>${i}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+
+        <!-- Desplegable: Tiempo de Cuenta Atrás -->
+        <div class="flex flex-col items-center">
+            <label for="time-select" class="text-sm font-semibold text-gray-700 mb-1">Tiempo (Minutos):</label>
+            <select id="time-select" class="p-2 border border-gray-300 rounded-lg shadow-inner focus:ring-blue-500 focus:border-blue-500">
+                <script>
+                    // Generar opciones de 1 a 10 minutos, seleccionando 2 por defecto
+                    for(let i = 1; i <= 10; i++) {
+                        document.write(`<option value="${i * 60}" ${i === 2 ? 'selected' : ''}>${i} min</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+    </div>
+
+    <!-- Controles de Acción -->
+    <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <button id="drawButton" class="px-6 py-3 bg-blue-600 text-white font-bold rounded-full shadow-xl hover:bg-blue-700 transition duration-200 transform hover:scale-105">
+            <span class="text-2xl mr-2">🎱</span> INICIAR SORTEO
+        </button>
+        
+        <button id="timerButton" class="px-6 py-3 bg-teal-500 text-white font-bold rounded-full shadow-xl hover:bg-teal-600 transition duration-200 transform hover:scale-105">
+            <span class="text-2xl mr-2">⏱️</span> INICIAR CONTADOR
+        </button>
+        
+        <button id="resetTimerButton" class="px-4 py-2 bg-gray-400 text-white font-bold rounded-full shadow-lg hover:bg-gray-500 transition duration-200" disabled>
+            REINICIAR
+        </button>
+    </div>
+
+    <!-- Área de Visualización -->
+    <div class="flex flex-col lg:flex-row justify-center items-center gap-10 p-6 bg-white rounded-xl shadow-2xl">
+        
+        <!-- Contador -->
+        <div class="flex flex-col items-center mb-6 lg:mb-0">
+            <h2 class="text-lg font-semibold text-gray-700 mb-3">Cuenta Atrás</h2>
+            <div id="timerDisplay" class="timer-display">02:00</div>
+            <p id="timerMessage" class="text-sm text-red-500 mt-2 font-medium hidden">¡TIEMPO FINALIZADO!</p>
+        </div>
+
+        <!-- Bolas Generadas -->
+        <div class="flex flex-col items-center w-full lg:w-3/4">
+            <h2 class="text-lg font-semibold text-gray-700 mb-3">Números Sorteados</h2>
+            <div id="ballArea" class="ball-container border-2 border-dashed border-gray-300 rounded-xl w-full min-h-[120px]">
+                <p class="text-gray-500 self-center">Presiona "Iniciar Sorteo" para generar los números.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const numBallsSelect = document.getElementById('num-balls-select');
+        const timeSelect = document.getElementById('time-select');
+        const drawButton = document.getElementById('drawButton');
+        const timerButton = document.getElementById('timerButton');
+        const resetTimerButton = document.getElementById('resetTimerButton');
+        const ballArea = document.getElementById('ballArea');
+        const timerDisplay = document.getElementById('timerDisplay');
+        const timerMessage = document.getElementById('timerMessage');
+
+        let timerInterval = null;
+        let timeLimitSeconds = parseInt(timeSelect.value); // Valor inicial: 2 minutos (120 segundos)
+        let timerRunning = false;
+
+        // --- Funciones del Temporizador ---
+
+        function formatTime(totalSeconds) {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            if (timerRunning) return;
+
+            // Leer el valor actual del desplegable de tiempo
+            timeLimitSeconds = parseInt(timeSelect.value);
+            let currentTime = timeLimitSeconds;
+
+            timerRunning = true;
+            timerButton.textContent = 'PAUSAR';
+            timerButton.classList.remove('bg-teal-500', 'hover:bg-teal-600');
+            timerButton.classList.add('bg-orange-500', 'hover:bg-orange-600');
+            resetTimerButton.disabled = false;
+            timerMessage.classList.add('hidden');
+            timerDisplay.classList.remove('timer-finished');
+
+            timerInterval = setInterval(() => {
+                currentTime--;
+                timerDisplay.textContent = formatTime(currentTime);
+
+                if (currentTime <= 0) {
+                    clearInterval(timerInterval);
+                    timerRunning = false;
+                    timerButton.textContent = 'INICIAR CONTADOR';
+                    timerButton.classList.remove('bg-orange-500', 'hover:bg-orange-600');
+                    timerButton.classList.add('bg-teal-500', 'hover:bg-teal-600');
+                    
+                    timerDisplay.textContent = formatTime(0);
+                    timerDisplay.classList.add('timer-finished');
+                    timerMessage.classList.remove('hidden');
+
+                    // Deshabilitar la pausa cuando termina
+                    timerButton.disabled = true;
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            if (!timerRunning || timerInterval === null) return;
+            
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerRunning = false;
+            timerButton.textContent = 'REANUDAR';
+            timerButton.classList.remove('bg-orange-500', 'hover:bg-orange-600');
+            timerButton.classList.add('bg-teal-500', 'hover:bg-teal-600');
+        }
+
+        function resetTimer() {
+            // Detener el intervalo si está corriendo
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerRunning = false;
+
+            // Leer el tiempo configurado para el reseteo
+            const newTime = parseInt(timeSelect.value);
+            timerDisplay.textContent = formatTime(newTime);
+
+            timerButton.textContent = '⏱️ INICIAR CONTADOR';
+            timerButton.classList.remove('bg-orange-500', 'hover:bg-orange-600');
+            timerButton.classList.add('bg-teal-500', 'hover:bg-teal-600');
+            
+            resetTimerButton.disabled = true;
+            timerButton.disabled = false; // Habilitar el botón de iniciar
+            timerMessage.classList.add('hidden');
+            timerDisplay.classList.remove('timer-finished');
+        }
+
+        function toggleTimer() {
+            if (timerInterval) {
+                pauseTimer();
+            } else {
+                startTimer();
+            }
+        }
+
+        // --- Funciones de Sorteo ---
+
+        function generateBalls() {
+            const numBlueBalls = parseInt(numBallsSelect.value);
+            ballArea.innerHTML = ''; // Limpiar área
+
+            // 1. Generar Bolas Azules
+            for (let i = 0; i < numBlueBalls; i++) {
+                const number = Math.floor(Math.random() * 100) + 1; // 1 a 100
+                const ball = document.createElement('div');
+                ball.classList.add('ball', 'ball-blue');
+                ball.textContent = number;
+                ballArea.appendChild(ball);
+            }
+
+            // 2. Generar Bola Roja (Aparece al final)
+            const redNumber = Math.floor(Math.random() * 1000) + 1; // 1 a 1000
+            const redBall = document.createElement('div');
+            redBall.classList.add('ball', 'ball-red');
+            redBall.textContent = redNumber;
+            
+            // Usamos un pequeño delay para que el efecto "al final" sea visible
+            setTimeout(() => {
+                ballArea.appendChild(redBall);
+            }, 300); 
+        }
+
+        // --- Inicialización y Event Listeners ---
+
+        function initialize() {
+            // Inicializar el temporizador al valor por defecto
+            resetTimer(); 
+            // Manejar cambio de selección de tiempo para reseteo automático
+            timeSelect.addEventListener('change', resetTimer);
+
+            timerButton.addEventListener('click', toggleTimer);
+            resetTimerButton.addEventListener('click', resetTimer);
+            drawButton.addEventListener('click', generateBalls);
+
+            // Generar los números iniciales al cargar la página
+            generateBalls();
+        }
+
+        initialize();
+    </script>
+</body>
+</html>
