@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Tablas de Multiplicar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="player-info">
+                <h1>Jugador: <span id="player-name">MultiCrack</span></h1>
+                <label>Puntos: <span id="score">0</span></label>
+            </div>
+            <div class="controls">
+                <label for="table-select">Selecciona Tabla:</label>
+                <select id="table-select">
+                    <option value="1">Tabla del 1</option>
+                    <option value="2">Tabla del 2</option>
+                    <option value="3">Tabla del 3</option>
+                    <option value="4">Tabla del 4</option>
+                    <option value="5">Tabla del 5</option>
+                    <option value="6">Tabla del 6</option>
+                    <option value="7">Tabla del 7</option>
+                    <option value="8">Tabla del 8</option>
+                    <option value="9">Tabla del 9</option>
+                    <option value="10">Tabla del 10</option>
+                </select>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="shuffle-checkbox">
+                    <label for="shuffle-checkbox">Resultados Desordenados</label>
+                </div>
+
+                <div class="timer-display">
+                    Tiempo restante: <span id="timer">02:00</span>
+                </div>
+            </div>
+        </header>
+
+        <hr>
+
+        <main>
+            <div id="card-area">
+                <p id="multiplication-card">Presiona **INICIAR** para comenzar</p>
+            </div>
+
+            <div id="result-buttons">
+                <button class="result-btn" data-value="1">1</button>
+                <button class="result-btn" data-value="2">2</button>
+                <button class="result-btn" data-value="3">3</button>
+                <button class="result-btn" data-value="4">4</button>
+                <button class="result-btn" data-value="5">5</button>
+                <button class="result-btn" data-value="6">6</button>
+                <button class="result-btn" data-value="7">7</button>
+                <button class="result-btn" data-value="8">8</button>
+                <button class="result-btn" data-value="9">9</button>
+                <button class="result-btn" data-value="10">10</button>
+            </div>
+            
+            <button id="start-button">INICIAR JUEGO</button>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    max-width: 1200px; /* Ancho aumentado para dos jugadores */
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 25%; /* Ajuste de ancho */
+    min-width: 150px;
+}
+
+.player-info input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.player-info label {
+    font-weight: bold;
+    color: #555;
+    font-size: 1.1em;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+}
+
+select, .checkbox-group {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+/* Main Game Area */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.timer-display {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #e91e63;
+    margin-bottom: 10px;
+}
+
+#card-area-wrapper {
+    background-color: #e0f7fa;
+    border: 2px solid #00bcd4;
+    padding: 30px;
+    border-radius: 8px;
+    width: 50%;
+    text-align: center;
+    min-height: 50px;
+}
+
+#multiplication-card {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #00796b;
+    margin: 0;
+}
+
+#buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 20px;
+}
+
+.result-buttons-group {
+    width: 45%;
+    max-width: 450px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    padding: 10px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+}
+
+.buttons-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+.result-btn {
+    padding: 15px 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Base Green */
+    color: white;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.result-btn:hover:not(:disabled) {
+    background-color: #388e3c;
+    transform: scale(1.02);
+}
+
+#start-button {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff9800;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+#start-button:hover:not(:disabled) {
+    background-color: #f57c00;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Feedback Colors */
+.correct {
+    background-color: #4CAF50 !important; /* Verde */
+}
+
+.incorrect {
+    background-color: #F44336 !important; /* Rojo */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .player-info {
+        width: 80%;
+    }
+    .controls {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+    }
+    #buttons-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .result-buttons-group {
+        width: 90%;
+        max-width: 500px;
+    }
+    #card-area-wrapper {
+        width: 90%;
+    }
+}
+@media (max-width: 500px) {
+    .result-buttons-group {
+        grid-template-columns: repeat(4, 1fr); /* Más compacto */
+    }
+    .controls {
+        flex-wrap: wrap;
+    }
+}

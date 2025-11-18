@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #333;
+    font-size: 1.5em;
+    margin: 0 0 10px 0;
+}
+
+header label {
+    font-weight: bold;
+    color: #555;
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+select, .checkbox-group, .timer-display {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+/* Main Game Area */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#card-area {
+    background-color: #e0f7fa;
+    border: 2px solid #00bcd4;
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%;
+    text-align: center;
+    min-height: 50px;
+}
+
+#multiplication-card {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #00796b;
+    margin: 0;
+}
+
+#result-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.result-btn {
+    padding: 15px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.result-btn:hover:not(:disabled) {
+    background-color: #388e3c;
+}
+
+#start-button {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff9800;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+#start-button:hover:not(:disabled) {
+    background-color: #f57c00;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Feedback Colors */
+.correct {
+    background-color: #4CAF50 !important; /* Verde */
+}
+
+.incorrect {
+    background-color: #F44336 !important; /* Rojo */
+}
+
+/* Small screen adjustments */
+@media (max-width: 600px) {
+    #result-buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .controls {
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

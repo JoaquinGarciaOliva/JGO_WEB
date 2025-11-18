@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Tablas de Multiplicar (2 Jugadores)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="player-info player-left">
+                <label for="player1-name-input">Nombre J1:</label>
+                <input type="text" id="player1-name-input" value="Jugador 1">
+                <label>Puntos: <span id="score-p1">0</span></label>
+            </div>
+
+            <div class="controls">
+                <label for="table-select">Tabla:</label>
+                <select id="table-select">
+                    <option value="1">Tabla del 1</option>
+                    <option value="2">Tabla del 2</option>
+                    <option value="3">Tabla del 3</option>
+                    <option value="4">Tabla del 4</option>
+                    <option value="5">Tabla del 5</option>
+                    <option value="6">Tabla del 6</option>
+                    <option value="7">Tabla del 7</option>
+                    <option value="8">Tabla del 8</option>
+                    <option value="9">Tabla del 9</option>
+                    <option value="10">Tabla del 10</option>
+                </select>
+
+                <label for="time-select">Tiempo (min):</label>
+                <select id="time-select">
+                    <option value="60">1</option>
+                    <option value="120" selected>2</option>
+                    <option value="180">3</option>
+                    <option value="300">5</option>
+                </select>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="shuffle-checkbox">
+                    <label for="shuffle-checkbox">Desordenado</label>
+                </div>
+            </div>
+
+            <div class="player-info player-right">
+                <label for="player2-name-input">Nombre J2:</label>
+                <input type="text" id="player2-name-input" value="Jugador 2">
+                <label>Puntos: <span id="score-p2">0</span></label>
+            </div>
+        </header>
+
+        <hr>
+
+        <main>
+            <div class="timer-display">
+                Tiempo restante: <span id="timer">02:00</span>
+            </div>
+            
+            <div id="card-area-wrapper">
+                <p id="multiplication-card">Presiona **INICIAR** para comenzar</p>
+            </div>
+
+            <div id="buttons-wrapper">
+                <div id="result-buttons-p1" class="result-buttons-group">
+                    <p class="buttons-title">Respuestas J1</p>
+                </div>
+
+                <div id="result-buttons-p2" class="result-buttons-group">
+                    <p class="buttons-title">Respuestas J2</p>
+                </div>
+            </div>
+            
+            <button id="start-button">INICIAR JUEGO</button>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
