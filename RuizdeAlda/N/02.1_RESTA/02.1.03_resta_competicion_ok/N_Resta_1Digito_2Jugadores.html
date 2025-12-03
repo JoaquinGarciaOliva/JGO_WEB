@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Cartas Matemáticas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Resta Nivel 1</h1>
+    </header>
+
+    
+    <div class="controls">
+
+        <button id="startButton"><img src="play-icon.png" alt="Iniciar" class="button-icon"></button>
+        <button id="pauseButton" disabled><img src="pause-icon.png" alt="Pausar" class="button-icon"></button>
+        <button id="showResultsButton" style="display: none;"><img src="versolucion.png" alt="Resultados" class="button-icon"></button>
+        <button id="newOperationsButton"><img src="cambiar-icon.png" alt="Cambiar Operaciones" class="button-icon"></button>
+
+        <!-- TIEMPO ENTRE CARTAS -->
+        <div class="speed-control-group">
+            <label for="flipSpeed" class="speed-label">Tiempo (s):</label>
+            <select id="flipSpeed"></select>
+        </div>
+
+        <!-- RONDAS -->
+        <div class="speed-control-group">
+            <label for="numCardsSelect" class="speed-label">Rondas:</label>
+            <select id="numCardsSelect"></select>
+        </div>
+
+        <!-- ⏱ NUEVO: TIEMPO DE PARTIDA -->
+        <div class="speed-control-group">
+            <label for="timeLimitSelect" class="speed-label">Minutos:</label>
+            <select id="timeLimitSelect"></select>
+        </div>
+
+    </div>
+
+
+
+    <!-- ÁREA DE JUEGO -->
+    <div class="game-area">
+
+        <!-- JUGADOR 1 -->
+        <div class="player-controls player-1-area">
+            <div class="player-score-marker">
+                Jugador 1: <span id="player1ScoreDisplay">0</span>
+            </div>
+
+            <div class="score-buttons" id="player1Buttons">
+                <div class="button-row">
+                    <button id="scoreMarker">0</button>
+                </div>
+
+                <div class="button-row">
+                    <button>1</button><button>2</button><button>3</button><button>4</button><button>5</button>
+                </div>
+                <div class="button-row">
+                    <button>6</button><button>7</button><button>8</button><button>9</button><button>10</button>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- CARTAS -->
+          <!-- ⏱ TEMPORIZADOR -->
+         <div>
+          <div id="countdownDisplay" class="timer-display"></div>
+          <div class="card-container"></div>
+        </div>
+
+        <!-- JUGADOR 2 -->
+        <div class="player-controls player-2-area">
+            <div class="player-score-marker">
+                Jugador 2: <span id="player2ScoreDisplay">0</span>
+            </div>
+
+            <div class="score-buttons" id="player2Buttons">
+                <div class="button-row">
+                    <button id="scoreMarker2">0</button>
+                </div>
+
+                <div class="button-row">
+                    <button>1</button><button>2</button><button>3</button><button>4</button><button>5</button>
+                </div>
+                <div class="button-row">
+                    <button>6</button><button>7</button><button>8</button><button>9</button><button>10</button>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
