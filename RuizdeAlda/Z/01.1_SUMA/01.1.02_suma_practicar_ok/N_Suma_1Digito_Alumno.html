@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Cartas Matemáticas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sumas Nivel 1</h1>
+    </header>
+
+    <div class="controls">
+        <button id="startButton"><img src="play-icon.png" alt="Iniciar" class="button-icon"></button>
+        <button id="pauseButton" disabled><img src="pause-icon.png" alt="Pausar" class="button-icon"></button>
+        <button id="showResultsButton" style="display: none;"><img src="versolucion.png" alt="Resultados" class="button-icon"></button>
+        <button id="newOperationsButton"><img src="cambiar-icon.png" alt="Cambiar Operaciones" class="button-icon"></button>
+
+        <div class="speed-control-group">
+            <label for="flipSpeed" class="speed-label">Tiempo (s):</label>
+            <select id="flipSpeed"></select>
+        </div>
+        
+        <div class="speed-control-group">
+            <label for="numCardsSelect" class="speed-label">Rondas:</label>
+            <select id="numCardsSelect"></select>
+        </div>         
+    </div>
+    
+    <div class="score-panel">
+        <label for="nameInput" class="player-name-label" style="display: none;">Nombre:</label>
+        <input type="text" id="nameInput" placeholder="Escribe tu nombre" style="display: none;">
+        <label class="player-score">Puntuación: <span id="playerScore">0</span></label>
+    </div>
+
+    <div class="card-container"></div>
+
+    <div class="score-buttons">
+        <div class="sign-buttons button-row">
+            <button id="signPlus" class="sign-button" data-sign="+">+</button>
+            <button id="signMinus" class="sign-button" data-sign="-">-</button>
+        </div>
+        <div class="button-row">
+             <button id="scoreMarker" class="score-button number-button" data-number="0">0</button>
+        </div>
+        <div class="button-row">
+             <button class="score-button number-button" data-number="1">1</button>
+             <button class="score-button number-button" data-number="2">2</button>
+             <button class="score-button number-button" data-number="3">3</button>
+             <button class="score-button number-button" data-number="4">4</button>
+             <button class="score-button number-button" data-number="5">5</button>
+        </div>
+        <div class="button-row">
+             <button class="score-button number-button" data-number="6">6</button>
+             <button class="score-button number-button" data-number="7">7</button>
+             <button class="score-button number-button" data-number="8">8</button>
+             <button class="score-button number-button" data-number="9">9</button>
+             <button class="score-button number-button" data-number="10">10</button>
+        </div>
+        <div class="button-row">
+             <button class="score-button number-button" data-number="11">11</button>
+             <button class="score-button number-button" data-number="12">12</button>
+             <button class="score-button number-button" data-number="13">13</button>
+             <button class="score-button number-button" data-number="14">14</button>
+             <button class="score-button number-button" data-number="15">15</button>
+        </div>
+        <div class="button-row">
+             <button class="score-button number-button" data-number="16">16</button>
+             <button class="score-button number-button" data-number="17">17</button>
+             <button class="score-button number-button" data-number="18">18</button>
+             <button class="score-button number-button" data-number="19">19</button>
+             <button class="score-button number-button" data-number="20">20</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
