@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Cartas Numéricas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cifras y Letras</h1>
+    </header>
+
+    <div class="controls">
+        <button id="startButton"> <img id="startButton" src="play-icon.png" alt="Iniciar" class="button-icon"> </button>
+        <button id="pauseButton" disabled style="display: none;"><img src="pause-icon.png" alt="Pausar" class="button-icon"></button>
+        <button id="showResultsButton" style="display: none;">  <img src="versolucion.png" alt="Resultados" class="button-icon"></button>
+        <button id="newOperationsButton"><img src="cambiar-icon.png" alt="Cambiar Operaciones" class="button-icon"></button>     
+
+        <div class="speed-control-group">
+            <label for="flipSpeed" class="speed-label">Tiempo (s):</label>
+            <select id="flipSpeed">
+                <option value="3000" selected>3</option> 
+            </select>
+        </div>
+        
+        <div class="time-control-group">
+            <label for="countdownMinutes" class="time-label">Minutos:</label>
+            <select id="countdownMinutes">
+                <option value="1">1</option> 
+            </select>
+        </div>
+    </div>
+    
+    <div id="countdownDisplay">--:--</div>
+
+    <div class="card-container">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
