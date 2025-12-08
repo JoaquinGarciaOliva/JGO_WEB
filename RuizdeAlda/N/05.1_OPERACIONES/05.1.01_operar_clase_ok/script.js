@@ -1,0 +1,253 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const cardContainer = document.querySelector('.card-container');
+    const startButton = document.getElementById('startButton');
+    const pauseButton = document.getElementById('pauseButton'); 
+    const showResultsButton = document.getElementById('showResultsButton');
+    const newOperationsButton = document.getElementById('newOperationsButton'); 
+    // NUEVO: Selector de velocidad
+    const flipSpeedSelect = document.getElementById('flipSpeed'); 
+
+    const totalCards = 10;
+    let cardData = []; 
+    let currentCardIndex = 0;
+    let intervalId = null;
+    // INICIALIZACIÓN: Usar el valor por defecto (5000ms = 5s)
+    let flipDelay = parseInt(flipSpeedSelect.value); 
+
+    // --- FUNCIÓN NUEVA: Llenar el desplegable ---
+    function populateFlipSpeed() {
+        // Limpiar el contenido existente
+        flipSpeedSelect.innerHTML = '';
+        
+        for (let i = 1; i <= 20; i++) {
+            const option = document.createElement('option');
+            // Almacenar el valor en milisegundos (1000ms * i)
+            option.value = i * 1000;
+            // Mostrar el valor en segundos
+            option.textContent = i;
+            
+            // Seleccionar 5 segundos (5000ms) como valor inicial
+            if (i === 5) {
+                option.selected = true;
+            }
+            flipSpeedSelect.appendChild(option);
+        }
+    }
+
+   
+// Función para generar una operación de división exacta (tablas de multiplicar)
+/**
+     * Genera una operación aleatoria de suma, resta, multiplicación o división,
+     * cumpliendo las restricciones de dígitos/tablas.
+     */
+    function generateOperation() {
+        // Array de las 4 operaciones a elegir
+        const operations = ['+', '-', '×', '÷'];
+        const operator = operations[Math.floor(Math.random() * operations.length)];
+
+        let topNum;
+        let bottomNum;
+        let result;
+
+        if (operator === '+') {
+            // Suma de 1 cifra (0 a 9)
+            topNum = Math.floor(Math.random() * 10);
+            bottomNum = Math.floor(Math.random() * 10);
+            result = topNum + bottomNum;
+        } else if (operator === '-') {
+            // Resta de 1 cifra, resultado natural (>= 0)
+            let numA = Math.floor(Math.random() * 10);
+            let numB = Math.floor(Math.random() * 10);
+            // Aseguramos que topNum >= bottomNum
+            topNum = Math.max(numA, numB);
+            bottomNum = Math.min(numA, numB);
+            result = topNum - bottomNum;
+        } else if (operator === '×') {
+            // Multiplicación de tablas (1 a 10)
+            topNum = Math.floor(Math.random() * 10) + 1; // 1 a 10
+            bottomNum = Math.floor(Math.random() * 10) + 1; // 1 a 10
+            result = topNum * bottomNum;
+        } else if (operator === '÷') {
+            // División exacta de tablas (1 a 10), resultado natural (1 a 10)
+            const divisor = Math.floor(Math.random() * 10) + 1; // 1 a 10
+            const cociente = Math.floor(Math.random() * 10) + 1; // 1 a 10 (el resultado)
+            
+            topNum = divisor * cociente; // Dividendo (el número grande)
+            bottomNum = divisor;         // Divisor (el número del 1 al 10)
+            result = cociente;
+        }
+        
+        return { topNum, bottomNum, operator, result };
+    }
+
+
+    // Función para crear el elemento HTML de una carta
+    function createCardElement(data, index) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.index = index;
+
+        const imageClass = (index + 1) % 2 === 0 ? 'image-even' : 'image-odd'; 
+        
+        const operationHTML = `
+            <div class="operation">
+                <span class="num1">${data.topNum}</span>
+                <span class="num2-with-sign">
+                    <span class="sign">${data.operator}</span>
+                    <span class="num2">${data.bottomNum}</span>
+                </span>
+                <div class="num2-line"></div>
+            </div>
+        `;
+        
+        card.innerHTML = `
+            <div class="card-face card-back ${imageClass}"></div> 
+            <div class="card-face card-front">
+                ${operationHTML}
+                <span class="result">${data.result}</span>
+            </div>
+        `;
+        return card;
+    }
+
+    // Función principal para inicializar el tablero de cartas
+    function initializeCards() {
+        // Detener y limpiar el intervalo si está corriendo
+        clearInterval(intervalId);
+        intervalId = null; 
+        
+        cardContainer.innerHTML = '';
+        cardData = [];
+        currentCardIndex = 0;
+
+        for (let i = 0; i < totalCards; i++) {
+            cardData.push(generateOperation());
+        }
+
+        cardData.forEach((data, index) => {
+            cardContainer.appendChild(createCardElement(data, index));
+        });
+
+        document.querySelectorAll('.card').forEach(card => card.classList.remove('flipped'));
+        document.querySelectorAll('.result').forEach(el => el.style.visibility = 'hidden');
+        
+        startButton.disabled = false;
+        pauseButton.disabled = true;
+        
+        const showResultsIcon = showResultsButton.querySelector('img');
+        showResultsIcon.src = 'versolucion.png'; 
+        showResultsIcon.alt = 'Mostrar Resultados';
+    }
+
+    // Función para girar la siguiente carta
+    function flipNextCard() {
+        // Voltear la carta anterior si existe
+        if (currentCardIndex > 0) {
+            const prevCard = document.querySelector(`.card[data-index="${currentCardIndex - 1}"]`);
+            if (prevCard) {
+                prevCard.classList.remove('flipped');
+            }
+        }
+
+        // Voltear la carta actual
+        if (currentCardIndex < totalCards) {
+            const currentCard = document.querySelector(`.card[data-index="${currentCardIndex}"]`);
+            if (currentCard) {
+                currentCard.classList.add('flipped');
+            }
+            currentCardIndex++;
+        } else {
+            // Secuencia terminada
+            clearInterval(intervalId);
+            intervalId = null;
+            startButton.disabled = true;
+            pauseButton.disabled = true;
+            
+             // Usar el valor actual de flipDelay para el último timeout
+             setTimeout(() => {
+                 const lastCard = document.querySelector(`.card[data-index="${totalCards - 1}"]`);
+                 if (lastCard) {
+                     lastCard.classList.remove('flipped');
+                 }
+             }, flipDelay);
+        }
+    }
+
+    // --- Control de Botones y Secuencia ---
+
+    function startSequence() {
+        if (intervalId !== null) return; 
+
+        if (currentCardIndex >= totalCards) {
+            currentCardIndex = 0;
+            document.querySelectorAll('.card').forEach(card => card.classList.remove('flipped'));
+        }
+        
+        // REINICIAR el intervalo con el nuevo flipDelay
+        flipNextCard(); 
+        intervalId = setInterval(flipNextCard, flipDelay);
+        startButton.disabled = true;
+        pauseButton.disabled = false;
+    }
+
+    function pauseSequence() {
+        clearInterval(intervalId);
+        intervalId = null;
+        startButton.disabled = false;
+        pauseButton.disabled = true;
+    }
+
+    function toggleResults() {
+        // ... (resto de la función toggleResults sin cambios)
+        const cards = document.querySelectorAll('.card');
+        const results = document.querySelectorAll('.result');
+        let isVisible = results[0].style.visibility === 'visible';
+        const showResultsIcon = showResultsButton.querySelector('img'); // Icono
+
+        if (intervalId !== null) {
+            pauseSequence();
+        }
+
+        cards.forEach(card => {
+            if (!isVisible) {
+                card.classList.add('flipped');
+            } else {
+                card.classList.remove('flipped');
+            }
+        });
+
+        results.forEach(el => {
+            el.style.visibility = isVisible ? 'hidden' : 'visible';
+        });
+
+        if (isVisible) {
+            showResultsIcon.src = 'versolucion.png';
+            showResultsIcon.alt = 'Resultados';
+        } else {
+            showResultsIcon.src = 'ocultarsolucion.png'; 
+            showResultsIcon.alt = 'Ocultar Resultados';
+        }
+    }
+
+    // --- Asignación de Eventos ---
+    startButton.addEventListener('click', startSequence);
+    pauseButton.addEventListener('click', pauseSequence);    
+    showResultsButton.addEventListener('click', toggleResults);
+    newOperationsButton.addEventListener('click', initializeCards);
+
+    // NUEVO EVENTO: Actualizar flipDelay cuando se cambia el desplegable
+    flipSpeedSelect.addEventListener('change', (e) => {
+        // Asegurarse de que el valor sea numérico y en milisegundos
+        flipDelay = parseInt(e.target.value);
+        
+        // Si la secuencia está activa, detenerla y reiniciarla con el nuevo tiempo
+        if (intervalId !== null) {
+            pauseSequence();
+            startSequence(); 
+        }
+    });
+
+    // Inicializar al cargar la página
+    populateFlipSpeed(); // Llenar el desplegable al inicio
+    initializeCards();
+});

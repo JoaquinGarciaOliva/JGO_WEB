@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Operaciones de Números Naturales </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Operaciones de Números Naturales</h1>
+    </header>
+    <div class="controls">
+   <!-- NIVEL 2: Selects + Checkbox -->
+    <div class="controls-row options-row">      
+        <div class="speed-control-group">
+            <label for="flipSpeed" class="speed-label">Tiempo (s):</label>
+            <select id="flipSpeed"></select>
+        </div>
+        <div class="speed-control-group">
+            <label for="numCardsSelect" class="speed-label">Rondas:</label>
+            <select id="numCardsSelect"></select>
+        </div>
+
+        <div class="speed-control-group" style="display: none;">
+            <label for="multiplicationTableSelect" class="speed-label">Tabla:</label>
+            <select id="multiplicationTableSelect"></select>
+        </div>
+
+        <div class="checkbox-group">            
+            <label for="randomizeAnswers">Resp. Aleatorias</label>
+            <input type="checkbox" id="randomizeAnswers">
+        </div>
+    </div>
+    <!-- NIVEL 1: Botones -->
+    <div class="controls-row buttons-row">
+        <button id="startButton"><img src="play-icon.png" alt="Iniciar" class="button-icon"></button>
+        <button id="pauseButton" disabled><img src="pause-icon.png" alt="Pausar" class="button-icon"></button>
+        <button id="showResultsButton" style="display: none;"><img src="versolucion.png" alt="Resultados" class="button-icon"></button>
+        <button id="newOperationsButton"><img src="cambiar-icon.png" alt="Cambiar Operaciones" class="button-icon"></button>
+    </div>
+</div>
+
+    
+    <div class="score-panel">
+        <label for="nameInput" class="player-name-label" style="display: none;">Nombre:</label>
+        <input type="text" id="nameInput" placeholder="Escribe tu nombre" style="display: none;">
+        <label class="player-score">Puntuación: <span id="playerScore">0</span></label>
+    </div>
+
+    <div class="card-container"></div>
+
+    <div class="score-buttons">
+            </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
