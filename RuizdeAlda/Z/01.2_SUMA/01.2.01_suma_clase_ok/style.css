@@ -16,6 +16,53 @@ body {
     align-items: center;
     padding: 20px;
     margin: 0;
+
+    padding: 0;   /* Para demostrar el 'position: fixed', puedes añadir contenido extra arriba */
+    min-height: 150vh; /* Esto crea una barra de desplazamiento vertical */
+}
+
+
+/* Estilos para el div del pie de página */
+/* CSS que necesitas añadir o modificar */
+
+/* 1. Aseguramos que el párrafo no tenga márgenes que interfieran */
+.footer-fijo {
+    /* 1. Posicionamiento Fijo */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    /* 2. Dimensiones */
+    width: 100%;
+    height: 80px;
+
+    /* 3. Colores y Tipografía */
+    background-color: navy;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+
+    /* 4. Alineación del contenido (Centrado Vertical y Horizontal del Párrafo) */
+    display: flex;
+    justify-content: center; 
+    align-items: center; /* Centrado vertical del <p> dentro del <div> */
+    text-align: center;
+    padding: 5px 0;
+}
+
+/* 5. SOLUCIÓN PARA ALINEAR IMAGEN Y TEXTO DENTRO DEL PÁRRAFO */
+.footer-fijo img {
+    vertical-align: middle; /* <-- ¡Esta es la clave! */
+}
+
+.footer-fijo a {
+    color: #00FFFF; /* Turquesa/Cian brillante. Puedes elegir otro color */
+    text-decoration: underline; /* Opcional: Asegura que el enlace esté subrayado */
+}
+
+/* Opcional: Estilo al pasar el ratón (hover) para dar feedback al usuario */
+.footer-fijo a:hover {
+    color: #FFD700; /* Dorado para el efecto hover */
 }
 
 header h1 {
