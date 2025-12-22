@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Joaquín García Oliva">
+    <meta name="description" content="Juego para aprender operaciones básicas de matemáticas">   
+    <title>Juego de Cartas Matemáticas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\..\..\Principal\Mainstyle.css">
+
+</head>
+<body>
+
+  <div class="contenedor-principal">
+
+    <header>
+        <h1>Tablas de Multiplicar </h1>
+        <div class="controls">
+        <button id="startButton"> <img id="startButton" src="../../../Principal/play-icon.png" alt="Iniciar" class="button-icon"> </button>
+        <button id="pauseButton" disabled><img src="../../../Principal/pause-icon.png" alt="Pausar" class="button-icon"></button>
+        <button id="showResultsButton">  <img src="../../../Principal/versolucion.png" alt="Resultados" class="button-icon"></button>
+        <button id="newOperationsButton"><img src="../../../Principal/cambiar-icon.png" alt="Cambiar Operaciones" class="button-icon"></button>    
+
+        <div class="speed-control-group">
+            <label for="flipSpeed" class="speed-label">Tiempo (s):</label>
+            <select id="flipSpeed">
+                <option value="5000" selected>5</option> 
+            </select>
+        </div>
+        
+        <div class="speed-control-group">
+            <label for="multiplicationTableSelect" class="speed-label">Tabla:</label>
+            <select id="multiplicationTableSelect"></select>
+        </div>
+        </div>
+    </header>
+  
+  <main class="contenido-principal">
+
+      <div class="card-container">
+    </div>
+ </main>
+ </div>
+
+ <script src="script.js"></script>
+ <script src="..\..\..\Principal\Mainscript.js"></script>
+
+
+</body>
+</html>
