@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Joaquín García Oliva">
+    <meta name="description" content="Juego para aprender operaciones básicas de matemáticas">   
+ 
+    <title>Juego de Cartas de Multiplicaciones</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\..\..\Principal\Mainstyle.css">
+</head>
+<body>
+
+<div class="contenedor-principal">
+   <header>
+        <h1>Tablas de Multiplicar
+          <label class="player-score">Puntuación: <span id="playerScore">0</span></label>
+        </h1>
+    </header>
+
+  <div class="controls">
+    <div class="controls-row buttons-row">
+
+      <!-- NIVEL 1: Botones -->
+        <button id="startButton"><img src="../../../Principal/play-icon.png" alt="Iniciar" class="button-icon"></button>
+        <button id="pauseButton" disabled><img src="../../../Principal/pause-icon.png" alt="Pausar" class="button-icon"></button>
+        <button id="showResultsButton" style="display: none;"><img src="../../../Principal/versolucion.png" alt="Resultados" class="button-icon"></button>
+        <button id="newOperationsButton"><img src="../../../Principal/cambiar-icon.png" alt="Cambiar Operaciones" class="button-icon"></button>
+    
+       <div class="speed-control-group">
+            <label for="flipSpeed" class="speed-label">Tiempo (s):</label>
+            <select id="flipSpeed"></select>
+        </div>
+
+        <div class="speed-control-group">
+            <label for="numCardsSelect" class="speed-label">Rondas:</label>
+            <select id="numCardsSelect"></select>
+        </div>
+
+        <div class="speed-control-group">
+            <label for="multiplicationTableSelect" class="speed-label">Tabla:</label>
+            <select id="multiplicationTableSelect"></select>
+        </div>
+
+        <div class="checkbox-group">            
+            <label for="randomizeAnswers">Resp. Aleatorias</label>
+            <input type="checkbox" id="randomizeAnswers">
+        </div>
+ </div>
+
+</div>
+
+ 
+    <main class="contenido-principal">
+      <div class="card-container"></div>
+      <div class="score-buttons"> </div>
+    </main>
+ </div>
+   
+ <script src="script.js"></script>
+ <script src="..\..\..\Principal\Mainscript.js"></script>
+
+
+
+</body>
+</html>
