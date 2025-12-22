@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Muy importante para el cálculo de alturas y padding */
+}
+
+:root {
+    --bg-color: #e0f7fa;          /* Azul claro */
+    --card-back-color: #1a237e;   /* Azul marino */
+    --card-front-color: #ffffff;
+    --card-width: 120px; 
+    --card-height: 160px; 
+    --card-border-color: #ff9800;    /* #ff9800 Naranja/Ámbar para el borde */
+    --title-color: #D61C00;          /* Marrón para el título */
+    --card-odd-image: '../../../Principal/imagen-impar.png';
+    --card-even-image: '../../../Principal/imagen-par.png' ;
+    --boton-play-image: '../../../Principal/play-icon.png' ;
+    --boton-ver-solucion: '../../../Principal/versolucion.png' ;
+    --boton-ocultar-solucion: '../../../Principal/ocultarsolucion.png' ;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 0;
+}
+
+
+
+html, body {
+    height: 100%; /* El html y el body deben ocupar el 100% de la ventana */
+    overflow: hidden; /* ❌ Evita scroll en toda la página */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Apila los elementos (Contenido y Footer) verticalmente */
+}
+
+
+/* 4. Contenedor Principal (Todo el contenido EXCEPTO el footer) */
+.contenedor-principal {
+    flex: 1;              /* Ocupa el espacio entre header y footer */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;     /* ❌ Evita scroll aquí */
+ }
+
+/* 5. Estilos de Contenido para visualización (Opcional) */
+header {
+    padding: 1px;
+    border-bottom: 0px solid #ccc;
+
+    justify-content: center; 
+    align-items: center; /* Centrado vertical del <p> dentro del <div> */
+    text-align: center;
+}
+
+header h1 {
+    color: var(--title-color);
+    padding:5px;
+}
+
+header label {
+    color: var( --card-back-color);
+    padding:5px;
+}
+
+
+.contenido-principal {
+  
+    flex: 1;              /* Usa el espacio disponible */
+    margin-bottom: 81px; /* Ajusta este valor si la altura de tu footer cambia */
+    
+                            /* 2. Padding Bottom: Solo añade padding en la parte inferior (mantenemos los 5px de padding top, left, right) */
+    padding: 5px 5px 0px 5px; /* Sintaxis: top | right | bottom | left */
+   
+    overflow-y: auto;  
+ 
+}
+
+/* Estilos para el div del pie de página */
+/* CSS que necesitas añadir o modificar */
+
+/* 1. Aseguramos que el párrafo no tenga márgenes que interfieran */
+/* 3. Estilo del Pie de Página (Fijo) */
+
+.footer-fijo {
+    /* 1. Posicionamiento Fijo */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    /* 2. Dimensiones */
+    width: 100%;
+    height: 80px;
+
+    /* 3. Colores y Tipografía */
+    background-color: #2635b7; /*navy;*/
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+
+    /* 4. Alineación del contenido (Centrado Vertical y Horizontal del Párrafo) */
+    display: flex;
+    justify-content: center; 
+    align-items: center; /* Centrado vertical del <p> dentro del <div> */
+    text-align: center;
+    padding: 5px 0;
+
+
+    line-height: 50px;   /* Centra el texto verticalmente si la altura es 50px */    
+    flex-shrink: 0;      /* El pie de página se mantendrá siempre en el fondo */
+}
+
+/* 5. SOLUCIÓN PARA ALINEAR IMAGEN Y TEXTO DENTRO DEL PÁRRAFO */
+.footer-fijo img {
+    vertical-align: middle; /* <-- ¡Esta es la clave! */
+}
+
+.footer-fijo a {
+    color: #00FFFF; /* Turquesa/Cian brillante. Puedes elegir otro color */
+    text-decoration: underline; /* Opcional: Asegura que el enlace esté subrayado */
+}
+
+/* Opcional: Estilo al pasar el ratón (hover) para dar feedback al usuario */
+.footer-fijo a:hover {
+    color: #FFD700; /* Dorado para el efecto hover */
+}
+
+
+
+
+
+
