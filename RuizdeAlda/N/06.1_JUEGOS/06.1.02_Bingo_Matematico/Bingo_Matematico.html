@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Definiciones Numéricas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\..\..\Principal\Mainstyle.css">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+<style>
+    #nivel1 {
+        width: 50px;   /* ajusta el tamaño */
+        height: auto;   /* mantiene la proporción */
+    }
+</style>
+
+</head>
+<body>
+
+<div class="contenedor-principal">
+ <main class="contenido-principal">
+
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Historial</h3>
+            <ul id="historial-lista"></ul>
+        </aside>
+
+        <main class="game-area">
+            <h1>BINGO MATEMÁTICO
+              <a href="cartones_todos.pdf" target="_blank">              
+                   <img id="nivel1"  src="bingo.png" onclick=""></img>              
+               </a>
+
+             </h1>
+            
+            <div class="settings">
+                <label for="intervalo">Intervalo (segundos):</label>
+                <select id="intervalo">
+                    <option value="1">1</option>
+                    <option value="3">3</option>
+                    <option value="5" selected>5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option> 
+                    <option value="30">30</option> 
+                </select>
+            </div>
+
+            <div id="pantalla-definicion" class="display-box">
+                
+            </div>
+
+            <div class="controls">
+               <button id="btn-play"> <img id="startButton" src="..\..\..\Principal\play-icon.png" alt="Iniciar / Continuar" class="button-icon"> </button>
+               <button id="btn-pause" ><img src="..\..\..\Principal\pause-icon.png" alt="Pausar" class="button-icon"></button> 
+               <button id="btn-reset"> <img src="..\..\..\Principal/cambiar-icon.png" alt="Reiniciar" class="button-icon"></button>
+               <button id="btn-check">  <img src="..\..\..\Principal\versolucion.png" alt="Comprobar Resultados" class="button-icon"></button>
+            </div>
+
+            <div class="check-section">
+                <textarea id="input-comprobar" placeholder="Introduce números separados por comas (ej: 1, 2, 45)"></textarea>               
+                                <div id="resultado-feedback"></div>
+            </div>
+        </main>
+    </div>
+
+    </main>
+    </div>
+
+
+    <script src="datos.js"></script>
+    <script src="script.js"></script>
+    <script src="..\..\..\Principal\Mainscript.js"></script>
+
+</body>
+</html>

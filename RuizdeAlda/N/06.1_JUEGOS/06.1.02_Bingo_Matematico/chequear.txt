@@ -1,0 +1,239 @@
+ <numero valor="1">
+        <nombre>Uno</nombre>
+        <definicion id="d1">Elemento neutro de la multiplicación.</definicion>
+        <definicion id="d2">5 - 4.</definicion>
+        <definicion id="d3">100 / 100.</definicion>
+        <definicion id="d4">La raíz cuadrada de 1: $\\sqrt{1}$.</definicion>
+        <definicion id="d5">El resultado de $1^n$ para cualquier entero $n$.</definicion>
+        <definicion id="d6">La factorial de 0: $0!$.</definicion>
+        <definicion id="d7">El primer número natural.</definicion>
+        <definicion id="d8">(2 - 1) x 1.</definicion>
+        <definicion id="d9">El número de dimensiones de una línea.</definicion>
+        <definicion id="d10">El logaritmo en base 10 de 10: $\log_{10}(10)$.</definicion>
+        <definicion id="d11">(12 / 6) - 1.</definicion>
+        <definicion id="d12">(50 + 50) / 100.</definicion>
+        <definicion id="d13">$\\sqrt{4} - 1$.</definicion>
+        <definicion id="d14">El único número que no es primo ni compuesto.</definicion>
+        <definicion id="d15">$\\sqrt{9} - 2$.</definicion>
+        <definicion id="d16">$1^1$ + 0.</definicion>
+        <definicion id="d17">(10 x 2) - 19.</definicion>
+        <definicion id="d18">La cifra que representa 'solo' una unidad.</definicion>
+        <definicion id="d19">Cualquier número dividido por sí mismo.</definicion>
+        <definicion id="d20">$12 - (5 \\times 2) - 1$.</definicion>
+    </numero>
+
+    <numero valor="2">
+        <nombre>Dos</nombre>
+        <definicion id="d21">El único número primo que es par.</definicion>
+        <definicion id="d22">1 + 1.</definicion>
+        <definicion id="d23">4 + 2 - 4.</definicion>
+        <definicion id="d24">La raíz cuadrada de 4: $\\sqrt{4}$.</definicion>
+        <definicion id="d25">El número más pequeño de Fibonacci que es mayor que 1.</definicion>
+        <definicion id="d26">Factorización prima: $2^1$.</definicion>
+        <definicion id="d27">El número de dimensiones de un plano (largo y ancho).</definicion>
+        <definicion id="d28">10 / 5.</definicion>
+        <definicion id="d29">$3 \\times 2 - 4$.</definicion>
+        <definicion id="d30">El número de ojos, manos o pies que tiene un ser humano típico.</definicion>
+        <definicion id="d31">100 / 50.</definicion>
+        <definicion id="d32">El número de lados de un digón (polígono de dos lados).</definicion>
+        <definicion id="d33">$\\sqrt{16} - 2$.</definicion>
+        <definicion id="d34">$3^2-7$.</definicion>
+        <definicion id="d35">11 - 9.</definicion>
+        <definicion id="d36">$3 \\times 3 - 7$.</definicion>
+        <definicion id="d37">(4 \\times 5) - 18.</definicion>
+        <definicion id="d38">El número mínimo de puntos para formar una línea recta.</definicion>
+        <definicion id="d39">$12 - 5 \\times 2$.</definicion>
+        <definicion id="d40">El número de la dualidad.</definicion>
+    </numero>
+
+    <numero valor="3">
+        <nombre>Tres</nombre>
+        <definicion id="d41">1 + 2.</definicion>
+        <definicion id="d42">El número de lados de un triángulo.</definicion>
+        <definicion id="d43">9 / 3.</definicion>
+        <definicion id="d44">27 / 9.</definicion>
+        <definicion id="d45">El segundo número primo.</definicion>
+        <definicion id="d46">La raíz cuadrada de 9: $\\sqrt{9}$.</definicion>
+        <definicion id="d47">El número de dimensiones del espacio físico (largo, ancho y alto).</definicion>
+        <definicion id="d48">$3 \\times 2 - 3$.</definicion>
+        <definicion id="d49">El número de la Santísima Trinidad.</definicion>
+        <definicion id="d50">(15 - 6) / 3.</definicion>
+        <definicion id="d51">El número de vértices de un triángulo.</definicion>
+        <definicion id="d52">El número de veces que se puede dividir un segmento para obtener un tercio.</definicion>
+        <definicion id="d53">100 - 97.</definicion>
+        <definicion id="d54">El número de colores primarios (rojo, amarillo, azul en el modelo RYB).</definicion>
+        <definicion id="d55">$7 - 2^2$.</definicion>
+        <definicion id="d56">$\\sqrt{25} - 2$.</definicion>
+        <definicion id="d57">5 + 4 - 6.</definicion>
+        <definicion id="d58"> $6 / 2$.</definicion>
+        <definicion id="d59">$13 - (4 \\times 2) - 2$.</definicion>
+        <definicion id="d60">$3 \\times (5 - 4)$.</definicion>
+    </numero>
+
+    <numero valor="4">
+        <nombre>Cuatro</nombre>
+        <definicion id="d61">2 + 2.</definicion>
+        <definicion id="d62">El resultado de elevar 2 al cuadrado: $2^2$.</definicion>
+        <definicion id="d63">La raíz cuadrada de 16: $\\sqrt{16}$.</definicion>
+        <definicion id="d64">El número de lados de un cuadrado o un rombo.</definicion>
+        <definicion id="d65">El número de estaciones del año.</definicion>
+        <definicion id="d66"> $2 \\times 6  - 8 $.</definicion>
+        <definicion id="d67">10 - 6.</definicion>
+        <definicion id="d68">$2 \\times (8  - 6) $.</definicion>
+        <definicion id="d69">20 / 5.</definicion>
+        <definicion id="d70">$3 \\times 2 - 2$.</definicion>
+        <definicion id="d71">1 + 2 + 1 .</definicion>
+        <definicion id="d72">El número de patas de muchos mamíferos.</definicion>
+        <definicion id="d73">El cuarto número de Fibonacci es 3, ya te lo he dicho y no es un número de Fibonacci.</definicion>
+        <definicion id="d74">(8 \\times 2) / 4.</definicion>
+        <definicion id="d75">$\\sqrt{4} + 2$.</definicion>
+        <definicion id="d76">$12 - (2 \\times 4)$.</definicion>
+        <definicion id="d77">El número de letras de "cero".</definicion>
+        <definicion id="d78">(5 - 3) \\times 2.</definicion>
+        <definicion id="d79">13 - 9.</definicion>
+        <definicion id="d80">$50 / 10 - 1$.</definicion>
+    </numero>
+
+    <numero valor="5">
+        <nombre>Cinco</nombre>
+        <definicion id="d81">2 + 3.</definicion>
+        <definicion id="d82">El número de dedos en una mano o un pie humano.</definicion>
+        <definicion id="d83">El tercer número primo.</definicion>
+        <definicion id="d84">La raíz cuadrada de 25: $\\sqrt{25}$.</definicion>
+        <definicion id="d85">10 / 2.</definicion>
+        <definicion id="d86">El número de la estrella pentagonal (pentagrama).</definicion>
+        <definicion id="d87">10 - 10 / 2.</definicion>
+        <definicion id="d88">El quinto número de Fibonacci.</definicion>
+        <definicion id="d89">$3 \\times 3 - 4$.</definicion>
+        <definicion id="d90">1 + 2 + 2.</definicion>
+        <definicion id="d91">$1 + 2 \\times 2$.</definicion>
+        <definicion id="d92">El número de lados de un pentágono.</definicion>
+        <definicion id="d93">25 / 5.</definicion>
+        <definicion id="d94">$\\sqrt{100} / 2$.</definicion>
+        <definicion id="d95">$5^1$.</definicion>
+        <definicion id="d96">15 - 10.</definicion>
+        <definicion id="d97">(100 - 90) / 2.</definicion>
+        <definicion id="d98">(7 - 2) \\times 1.</definicion>
+        <definicion id="d99">3 + 2.</definicion>
+        <definicion id="d100">$10 - (2 \\times 2) - 1$.</definicion>
+    </numero>
+
+    <numero valor="6">
+        <nombre>Seis</nombre>
+        <definicion id="d101">3 + 3.</definicion>
+        <definicion id="d102">El resultado de $3!$ (factorial de 3).</definicion>
+        <definicion id="d103">El número más pequeño que es un número perfecto ($1+2+3=6$).</definicion>
+        <definicion id="d104">Factorización prima: $2 \\times 3$.</definicion>
+        <definicion id="d105">El número de lados de un hexágono.</definicion>
+        <definicion id="d106">12 / 2.</definicion>
+        <definicion id="d107">El número de caras de un cubo.</definicion>
+        <definicion id="d108">8 / 2 + 2.</definicion>
+        <definicion id="d109">1 + 2 + 3.</definicion>
+        <definicion id="d110">$2 \\times (10 - 7)$.</definicion>
+        <definicion id="d111">30 / 5.</definicion>
+        <definicion id="d112">$\\sqrt{36}$.</definicion>
+        <definicion id="d113">$2^3 - 2$.</definicion>
+        <definicion id="d114">El número de puntos en la cara opuesta al uno en un dado estándar.</definicion>
+        <definicion id="d115">11 - 5.</definicion>
+        <definicion id="d116">$2 \\times 3 \\times 1$.</definicion>
+        <definicion id="d117">4 + 2.</definicion>
+        <definicion id="d118">(18 / 3) + 0.</definicion>
+        <definicion id="d119">10 - 4.</definicion>
+        <definicion id="d120"> 10 / (5-3) + 1.</definicion>
+    </numero>
+
+ <numero valor="7">
+        <nombre>Siete</nombre>
+        <definicion id="d121">3 + 4.</definicion>
+        <definicion id="d122">El número de días de la semana.</definicion>
+        <definicion id="d123">El cuarto número primo.</definicion>
+        <definicion id="d124">El número de la suerte en muchas culturas.</definicion>
+        <definicion id="d125">10 - 3.</definicion>
+        <definicion id="d126">El número de colores del arcoíris.</definicion>
+        <definicion id="d127"> Los mágnificos del oeste.</definicion>
+        <definicion id="d128">El número de pecados capitales.</definicion>
+        <definicion id="d129">5 \\times 2 - 3.</definicion>
+        <definicion id="d130">El número de notas musicales básicas.</definicion>
+        <definicion id="d131">49 / 7.</definicion>
+        <definicion id="d132">1 + 2 + 2 + 1 + 1.</definicion>
+        <definicion id="d133">$2 \\times 4 - 1$.</definicion>
+        <definicion id="d134">$\\sqrt{64} - 1$.</definicion>
+        <definicion id="d135">$7^1$.</definicion>
+        <definicion id="d136">1 + 1 + 1 + 1 + 1 + 1 + 1.</definicion>
+        <definicion id="d137">21 / 3.</definicion>
+        <definicion id="d138">(16 - 2) / 2.</definicion>
+        <definicion id="d139">El número de maravillas del mundo antiguo.</definicion>
+        <definicion id="d140">12 - 5.</definicion>
+    </numero>
+
+    <numero valor="8">
+        <nombre>Ocho</nombre>
+        <definicion id="d141">4 + 4.</definicion>
+        <definicion id="d142">El resultado de elevar 2 al cubo: $2^3$.</definicion>
+        <definicion id="d143">El número de patas de un arácnido (ej. araña).</definicion>
+        <definicion id="d144">El sexto número de la secuencia de Fibonacci.</definicion>
+        <definicion id="d145"> $3^2 + 2 - 3$.</definicion>
+        <definicion id="d146">El número de bits en un byte.</definicion>
+        <definicion id="d147"> $2^2 - ( 1 - 5 )$.</definicion>
+        <definicion id="d148">Factorización prima: $2 \\times 2 \\times 2$.</definicion>
+        <definicion id="d149">16 / 2.</definicion>
+        <definicion id="d150">10 - 2.</definicion>
+        <definicion id="d151">El número de lados de un octógono.</definicion>
+        <definicion id="d152">$(3 \\times 3) - 1.$</definicion>
+        <definicion id="d153">1 + 7.</definicion>
+        <definicion id="d154">$\\sqrt{64}$.</definicion>
+        <definicion id="d155">(4 \\times 4) / 2.</definicion>
+        <definicion id="d156">$2^2 + 4$.</definicion>
+        <definicion id="d157">20 - 12.</definicion>
+        <definicion id="d158">El símbolo del infinito tumbado, $\infty$, si se gira verticalmente.</definicion>
+        <definicion id="d159">32 / 4.</definicion>
+        <definicion id="d160">1 + 2 + 5.</definicion>
+    </numero>
+
+    <numero valor="9">
+        <nombre>Nueve</nombre>
+        <definicion id="d161">5 + 4.</definicion>
+        <definicion id="d162">El resultado de elevar 3 al cuadrado: $3^2$.</definicion>
+        <definicion id="d163">La raíz cuadrada de 81: $\\sqrt{81}$.</definicion>
+        <definicion id="d164">El número más grande de un solo dígito.</definicion>
+        <definicion id="d165">$3 \\times (7-4)$.</definicion>
+        <definicion id="d166">Factorización prima: $3 \\times 3$.</definicion>
+        <definicion id="d167">18 / 2.</definicion>
+        <definicion id="d168">$3 \\times 4 + 1$.</definicion>
+        <definicion id="d169">10 - 1.</definicion>
+        <definicion id="d170">$2 \\times 5 - 1$.</definicion>
+        <definicion id="d171">$ 19 - 2 \\times 5 $</definicion>
+        <definicion id="d172">(20 - 2) / 2.</definicion>
+        <definicion id="d173">1 + 8.</definicion>
+        <definicion id="d174">1 + 2 + 3 + 3.</definicion>
+        <definicion id="d175">12 - 3.</definicion>
+        <definicion id="d176">50 - 41.</definicion>
+        <definicion id="d177">$1 + 2 \\times 4 $</definicion>
+        <definicion id="d178">$(4 \\times 3) - 3$.</definicion>
+        <definicion id="d179"> 63 / 7.definicion>
+        <definicion id="d180">36 / 4.</definicion>
+    </numero>
+
+    <numero valor="10">
+        <nombre>Diez</nombre>
+        <definicion id="d181">5 + 5.</definicion>
+        <definicion id="d182">La base de nuestro sistema numérico (decimal).</definicion>
+        <definicion id="d183">$5 \\times 2$.</definicion>
+        <definicion id="d184">La raíz cuadrada de 100: $\\sqrt{100}$.</definicion>
+        <definicion id="d185">El número de mandamientos bíblicos.</definicion>
+        <definicion id="d186">Primer número divisible por 2 y por 5.</definicion>
+        <definicion id="d187">Primer número con dos dígitos.</definicion>
+        <definicion id="d188">$3^2 + 1$.</definicion>
+        <definicion id="d189">3 + 7.</definicion>
+        <definicion id="d190">(4 \\times 3) - 2.</definicion>
+        <definicion id="d191">30 / 3.</definicion>
+        <definicion id="d192">El número de décadas en un siglo.</definicion>
+        <definicion id="d193">4 + 6.</definicion>
+        <definicion id="d194">La nota máxima de un examen.</definicion>
+        <definicion id="d195">(10 \\times 10) / 10.</definicion>
+        <definicion id="d196">1 + 2 + 3 + 4.</definicion>
+        <definicion id="d197">20 / 2.</definicion>
+        <definicion id="d198">23 - 13.</definicion>
+        <definicion id="d199">100 / 10.</definicion>
+        <definicion id="d200">17 - 7.</definicion>
+    </numero>
