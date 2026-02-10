@@ -155,7 +155,7 @@
         <definicion id="d124">El número impar posterior a cinco.</definicion>
         <definicion id="d125">10 - 3.</definicion>
         <definicion id="d126">El número de colores del arcoíris.</definicion>
-        <definicion id="d127">El número de los siete magníficos del oeste.</definicion>
+        <definicion id="d127"> El número de los siete mágnificos del oeste.</definicion>
         <definicion id="d128">El número de pecados capitales.</definicion>
         <definicion id="d129">$5 \\times 2 - 3$.</definicion>
         <definicion id="d130">El número de notas musicales básicas.</definicion>
@@ -1142,7 +1142,7 @@
         <definicion id="d942">El resultado de $4 \\times 12$.</definicion>
         <definicion id="d943">El número de estados que componían los EE. UU. antes de Alaska y Hawái. Actualmente tiene 50 estados.</definicion>
         <definicion id="d944">Factorización prima: $2^4 \\times 3$.</definicion>
-        <definicion id="d945">El número par anterior a cincuenta.</definicion>
+        <definicion id="d945"></definicion>
         <definicion id="d946">96 / 2.</definicion>
         <definicion id="d947">$50 - 2$.</definicion>
         <definicion id="d948">El número de minutos en los que se juega un partido de baloncesto (NBA). 4 cuartos de 12 minutos.</definicion>

@@ -48,13 +48,20 @@ body {
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* Flexbox corregido */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    
     font-size: 1.5rem;
-    text-align: center;
+    text-align: left;
     margin: 20px 0;
     padding: 20px;
+    
+    /* Vital para MathJax */
+    overflow: visible; 
+    line-height: 1.6;
 }
 
 .controls {

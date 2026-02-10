@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - Bingo Matemático</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; }
+        .manual-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 3px solid #F7E940; padding-bottom: 10px; }
+        h2 { color: #e67e22; margin-top: 25px; }
+        .step { display: flex; align-items: flex-start; margin-bottom: 15px; }
+        .step-number { background: #2c3e50; color: white; border-radius: 50%; width: 25px; height: 25px; display: flex; justify-content: center; align-items: center; margin-right: 15px; flex-shrink: 0; font-weight: bold; }
+        .highlight { background: #fff9c4; padding: 2px 5px; border-radius: 4px; font-weight: bold; }
+        .icon-help { font-style: italic; color: #666; font-size: 0.9em; }
+        .footer { margin-top: 40px; text-align: center; font-size: 0.8em; color: #888; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        td, th { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f8f8f8; }
+
+    #nivel1 {
+        width: 30px;   /* ajusta el tamaño */
+        height: auto;   /* mantiene la proporción */
+    }
+
+    </style>
+    
+</head>
+<body>
+
+<div class="manual-card">
+    <h1>Guía de Uso: Bingo Matemático</h1>
+    <p>Bienvenido al <strong>Bingo Matemático</strong>. Esta aplicación permite realizar sorteos automáticos basados en definiciones matemáticas complejas, renderizadas con precisión científica.</p>
+
+    <h2>1. Preparación del Juego</h2>
+    <div class="step">
+        <div class="step-number">1</div>
+        <div><strong>Descargar Cartones:</strong> Haz clic en el icono  <img id="nivel1"  src="bingo.png" onclick=""></img> junto al título para abrir o descargar los cartones en PDF para los alumnos.</div>
+    </div>
+    <div class="step">
+        <div class="step-number">2</div>
+        <div><strong>Configurar Tiempo:</strong> En el menú desplegable "Intervalo", selecciona cuántos segundos quieres que pasen entre una definición y otra (por defecto 20 segundos).</div>
+    </div>
+
+    <h2>2. Controles del Sorteo</h2>
+    <table>
+        <tr>
+            <th>Icono</th>
+            <th>Botón</th>
+            <th>Acción</th>
+        </tr>
+        <tr>
+            <td><img id="nivel1" src="bingo.png" alt="Cartones" class="button-icon"></td>
+            <td><strong>Cartones</strong> </td>
+            <td>Descarga un pdf con diferentes cartones de bingo.</td>
+        </tr>
+
+        <tr>
+            <td><img id="nivel1" src="..\..\..\Principal\play-icon.png" alt="Iniciar / Continuar" class="button-icon"></td>
+            <td><strong>Play (Reproducir)</strong> </td>
+            <td>Inicia el sorteo. Aparecerá una definición matemática aleatoria en la pantalla central.</td>
+        </tr>
+        <tr>
+            <td><img id="nivel1" src="..\..\..\Principal\pause-icon.png" alt="Pausar" class="button-icon"></td>
+            <td><strong>Pause (Pausa) </strong> </td>
+            <td>Detiene el avance automático si los alumnos necesitan más tiempo para resolver la definición.</td>
+        </tr>
+        <tr>
+            <td><img id="nivel1" src="..\..\..\Principal\cambiar-icon.png" alt="Reiniciar" class="button-icon"></td>
+            <td><strong>Reset (Reiniciar) </strong></td>
+            <td>Limpia el historial, restablece todos los números del 1 al 100 y detiene el juego.</td>
+        </tr>
+        <tr>
+            <td><img id="nivel1" src="..\..\..\Principal\versolucion.png" alt="Comprobar" class="button-icon"></td>
+            <td><strong>Comprobar</strong> </td>
+            <td>Comprobar si los números introducidos en el cuadro de texto han salido en el sorteo.</td>
+        </tr>
+
+    </table>
+
+    <h2>3. Durante la Partida</h2>
+    <ul>
+        <li><strong>Panel de Definiciones:</strong> Aquí verás la fórmula o el acertijo matemático. El sistema utiliza <em>MathJax</em> para que todas las potencias, raíces y símbolos se vean perfectamente.</li>
+        <li><strong>Historial:</strong> En la barra lateral izquierda se irán acumulando las definiciones que ya han salido. Esto sirve para repasar en caso de duda.</li>
+    </ul>
+
+    <h2>4. Comprobación de Ganadores</h2>
+    <p>Cuando un alumno cante "¡Línea!" o "¡Bingo!", no necesitas buscar en el historial manualmente:</p>
+         <div class="step">
+        <div class="step-number">1</div>
+        <div>Pulsa el botón de pausa <img id="nivel1" src="..\..\..\Principal\pause-icon.png" alt="Comprobar Resultados" class="button-icon">.</div>
+    </div>
+
+    <div class="step">
+        <div class="step-number">2</div>
+        <div>Escribe los números del cartón del alumno en el cuadro de texto inferior, separados por comas (ejemplo: <code>5, 12, 45</code>) y pulsa el botón de <strong>Comprobar</strong>  <img id="nivel1" src="..\..\..\Principal\versolucion.png" alt="Comprobar Resultados" class="button-icon">.</div>
+    </div>
+ <div class="step">
+        <div class="step-number">3</div>
+        <div>El sistema te dirá automáticamente si todos esos números ya han salido o si hay alguno que todavía no ha sido sorteado. Pulsa el boton de play para continuar si se ha cantado "¡Línea!" o algún número era incorrecto. </div>
+ </div>
+<div class="step">
+        <div class="step-number">4</div>
+        <div>Si se ha cantado "¡Bingo!" y todos los números eran correcto el juego ha Terminado. Puedes pulsar el botón de reiniciar <img id="nivel1" src="..\..\..\Principal\cambiar-icon.png" alt="Reiniciar" class="button-icon"> para jugar una partida nueva. </div>
+
+    </div>
+<div class="step">
+        <div class="step-number">5</div>
+        <div>En caso de empate se puede lanzar una moneda o hacer una competición entre los ganadores a la Petanca Matemática o las operaciones de números naturales. </div>
+    </div>
+
+    <div class="footer">
+        Bingo Matemático - Herramienta Educativa
+    </div>
+</div>
+
+</body>
+</html>

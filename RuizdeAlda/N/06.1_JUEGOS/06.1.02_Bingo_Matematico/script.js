@@ -5,6 +5,11 @@ let numerosRestantes = Array.from({length: 100}, (_, i) => i + 1);
 let timer = null;
 let juegoPausado = true;
 
+let indexDepuracion = 0; // Para saber por qué número vamos
+let subIndexDepuracion = 0; // Para saber qué definición de ese número estamos viendo
+let modoDebugActivo = true; // Cambia a false si quieres volver al juego normal
+
+
 const display = document.getElementById('pantalla-definicion');
 const historialLista = document.getElementById('historial-lista');
 
@@ -53,8 +58,9 @@ function siguienteTurno() {
     }
 
     // 1. Actualizar Pantalla Principal
-    display.textContent = textoDefinicion;
-    
+      // display.textContent = textoDefinicion;
+      display.innerHTML = '<li>' + textoDefinicion + '</li>';
+
     // 2. Actualizar Historial (Solo la definición, sin el número)
     const li = document.createElement('li');
     li.style.padding = "8px 0";
@@ -68,10 +74,50 @@ function siguienteTurno() {
     }
 }
 
+
+function mostrarSiguienteDepuracion() {
+    // Obtenemos los índices de los números disponibles
+    const keys = Object.keys(definicionesData);
+    
+    if (indexDepuracion >= keys.length) {
+        display.textContent = "✅ Fin de la revisión de todas las definiciones.";
+        clearInterval(timer);
+        return;
+    }
+
+    const valorActual = keys[indexDepuracion];
+    const infoNum = definicionesData[valorActual];
+    const defs = infoNum.definiciones;
+
+    // Mostramos la definición actual
+    const textoDefinicion = `[Num ${valorActual}] : ${defs[subIndexDepuracion]}`;
+    display.innerHTML = '<li>' + textoDefinicion + '</li>';
+
+    // Añadimos al historial para ver el progreso
+    const li = document.createElement('li');
+    li.style.padding = "4px 0";
+    li.style.borderBottom = "1px solid #ccc";
+    li.textContent = textoDefinicion;
+    historialLista.prepend(li);
+
+    // Renderizar con MathJax
+    if (window.MathJax) {
+        MathJax.typesetPromise([display, li]).catch((err) => console.log(err.message));
+    }
+
+    // Lógica para avanzar al siguiente
+    subIndexDepuracion++;
+    if (subIndexDepuracion >= defs.length) {
+        subIndexDepuracion = 0;
+        indexDepuracion++;
+    }
+}
+
+
 // --- EVENTOS DE BOTONES ---
 
 // Play / Continuar
-document.getElementById('btn-play').addEventListener('click', () => {
+  document.getElementById('btn-play').addEventListener('click', () => {
   if (juegoPausado) {
 
         juegoPausado = false;
@@ -81,8 +127,25 @@ document.getElementById('btn-play').addEventListener('click', () => {
         const segundos = parseInt(document.getElementById('intervalo').value) * 1000;
         siguienteTurno(); 
         timer = setInterval(siguienteTurno, segundos);
-    }
-});
+     }
+  });
+
+// Play / Continuar  Modo Depuración.... Anular este código o el de play según desee depurar o no. 
+
+// --- document.getElementById('btn-play').addEventListener('click', () => {
+   // ---  if (juegoPausado) {
+   // ---     juegoPausado = false;
+   // ---     document.getElementById('btn-play').disabled = true;
+   // ---     document.getElementById('btn-pause').disabled = false;
+
+    // ---    const segundos = parseInt(document.getElementById('intervalo').value) * 1000;
+        
+        // Ejecutamos la primera vez y configuramos el intervalo
+  // ---      mostrarSiguienteDepuracion(); 
+  // ---      timer = setInterval(mostrarSiguienteDepuracion, segundos);
+ // ---  }
+// --- });
+
 
 // Pausa
 
@@ -145,6 +208,9 @@ function reiniciarJuego() {
 
     console.log("Juego reiniciado");
 }
+
+
+
 
 // Inicializar
 cargarDatos();

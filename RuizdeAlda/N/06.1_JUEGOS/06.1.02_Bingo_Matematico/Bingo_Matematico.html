@@ -6,7 +6,7 @@
     <title>Juego de Definiciones Numéricas</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="..\..\..\Principal\Mainstyle.css">
-
+    <link id='lestilo2'  rel='stylesheet' type='text/css' href='..\..\..\Principal\Ventana_Modal.css' />  
     <script>
         window.MathJax = {
             tex: {
@@ -40,11 +40,12 @@
         </aside>
 
         <main class="game-area">
-            <h1>BINGO MATEMÁTICO
-              <a href="cartones_todos.pdf" target="_blank">              
+            <h1>
+               <img id="ayuda"  class="icono-cabecera" src="..\..\..\Principal\help.png" onclick="ventanamodal('Bingo_Matematico_Manual.html')"></img> 
+               BINGO MATEMÁTICO
+               <a href="cartones_todos.pdf" target="_blank">              
                    <img id="nivel1"  src="bingo.png" onclick=""></img>              
-               </a>
-
+               </a>               
              </h1>
             
             <div class="settings">
@@ -52,10 +53,10 @@
                 <select id="intervalo">
                     <option value="1">1</option>
                     <option value="3">3</option>
-                    <option value="5" selected>5</option>
+                    <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
-                    <option value="20">20</option>
+                    <option value="20" selected>20</option>
                     <option value="25">25</option> 
                     <option value="30">30</option> 
                 </select>
@@ -65,11 +66,28 @@
                 
             </div>
 
-            <div class="controls">
-               <button id="btn-play"> <img id="startButton" src="..\..\..\Principal\play-icon.png" alt="Iniciar / Continuar" class="button-icon"> </button>
-               <button id="btn-pause" ><img src="..\..\..\Principal\pause-icon.png" alt="Pausar" class="button-icon"></button> 
-               <button id="btn-reset"> <img src="..\..\..\Principal/cambiar-icon.png" alt="Reiniciar" class="button-icon"></button>
-               <button id="btn-check">  <img src="..\..\..\Principal\versolucion.png" alt="Comprobar Resultados" class="button-icon"></button>
+            <div class="controls">             
+               
+              
+               
+               
+            <div class="tooltip2-container">
+                <button id="btn-play"> <img id="startButton" src="..\..\..\Principal\play-icon.png" alt="Iniciar / Continuar" class="button-icon"> </button>
+                <span class="tooltip-text">Iniciar / Continuar</span>
+             </div>
+             <div class="tooltip2-container">
+                 <button id="btn-pause" ><img src="..\..\..\Principal\pause-icon.png" alt="Pausar" class="button-icon"></button>  
+                <span class="tooltip-text">Pausar</span>
+             </div>
+             <div class="tooltip2-container">
+                <button id="btn-reset"> <img src="..\..\..\Principal/cambiar-icon.png" alt="Reiniciar" class="button-icon"></button> 
+                <span class="tooltip-text">Reiniciar</span>
+             </div>
+             <div class="tooltip2-container">
+                <button id="btn-check">  <img src="..\..\..\Principal\versolucion.png" alt="Comprobar Resultados" class="button-icon"></button>
+                <span class="tooltip-text">Comprobar Resultados</span>
+             </div>
+
             </div>
 
             <div class="check-section">
@@ -83,9 +101,21 @@
     </div>
 
 
+  <div id="myModal" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-body">
+                <iframe id="modalIframe" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
     <script src="datos.js"></script>
     <script src="script.js"></script>
     <script src="..\..\..\Principal\Mainscript.js"></script>
-
+    <script src="..\..\..\Principal\Ventana_Modal.js"></script>
 </body>
+
+
+
 </html>
