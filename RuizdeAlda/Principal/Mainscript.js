@@ -7,7 +7,10 @@ function insertarFooter() {
         <footer class="footer-fijo"> 
              <p>
                 <img src="../../../Principal/licencia.png" alt="CC BY-NC-ND 4.0" style="max-width: 10em; max-height: 7em; margin-bottom: 2.5em;">
-                 2025 Website developed by Joaquin Garcia Oliva and licensed under 
+                 2025 Website developed by Joaquín García Oliva 
+                 <img src="../../../Principal/logo_jgo_3_1.png" alt="" style="max-width: 50px; max-height: 50px; margin-bottom: 10px;">
+
+                and licensed under 
                 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
                 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em; max-height: 1em; margin-left: .2em;">
                 <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em; max-height: 1em; margin-left: .2em;">
