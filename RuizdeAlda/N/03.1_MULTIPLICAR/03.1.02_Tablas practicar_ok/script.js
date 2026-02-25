@@ -416,11 +416,11 @@ function updateResultButtons() {
         const tableValue = e.target.value;
         if (tableValue) {
             selectedTable = parseInt(tableValue);
-            document.querySelector('header h1').textContent = `Tabla del ${selectedTable}`;
+            document.getElementById('ntabla').textContent = `Tabla del ${selectedTable}`;
         } else {
             // Se selecciona el espacio en blanco (modo aleatorio)
             selectedTable = null;
-            document.querySelector('header h1').textContent = `Tablas de Multiplicar`;
+             document.getElementById('ntabla').textContent = `Tablas de Multiplicar`;
         }
         // updateResultButtons ya no se llama aquí, se llama en initializeCards y showCurrentCard.
         initializeCards(true);
